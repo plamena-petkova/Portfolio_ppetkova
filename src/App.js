@@ -1,8 +1,8 @@
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
-    <div>Portfolio App</div>
+    <div className='App'>Portfolio App</div>
   );
 }
 
