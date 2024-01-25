@@ -16,14 +16,8 @@ export function Header() {
           quam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem,
           autem sit. Accusamus, aperiam repudiandae doloribus ea sed, eligendi
           reprehenderit officia odio non cupiditate ipsum suscipit magni ipsa
-          repellendus? Quasi, vitae! Lorem ipsum dolor sit amet consectetur,
-          adipisicing elit. Laudantium incidunt expedita non quam sed ut
-          perferendis porro harum voluptatem, dolor eum, obcaecati praesentium
-          reiciendis illo tenetur repudiandae, dolores mollitia nam. Lorem
-          ipsum, dolor sit amet consectetur adipisicing elit. Vero expedita
-          ratione nobis impedit quae asperiores consequuntur, dicta neque
-          corporis sit dolorum, repellat voluptates quisquam aliquid adipisci
-          similique ipsam alias minima?
+          repellendus? Quasi, vitae!
+      
         </p>
         <div className="container__header--btn">
           <Button caption={"Projects"} buttonClass={"btn btn--green"} />
