@@ -1,9 +1,14 @@
-import './App.scss';
+import "./App.scss";
+import { Header } from "./components/Header/Header";
+import { Navigation } from "./components/Navigation/Navigation";
 
-function App() {
+const App = () => {
   return (
-    <div className='App'>Portfolio App</div>
+    <>
+      <Navigation />
+      <Header />
+    </>
   );
-}
+};
 
 export default App;
