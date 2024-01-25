@@ -7,7 +7,7 @@
     &--btn {
         display: flex;
         flex-direction: row;
-        border: none;
+        border: 1.5px solid $defaultColor;
         font-size: 1.6rem;
         background-color: $defaultColor;
         color: $color-dark-green;
@@ -15,7 +15,16 @@
         
         &:not(:last-child),
         &:not(:first-child){
-            margin: 1.5rem;
+            margin: 2.5rem;
+        }
+
+        &:hover {
+            border-bottom: 1.5px solid $color-dark-green;
+        }
+
+        &:visited {
+            border-bottom: 1.5px solid $color-dark-green;
+            background-color: $color-lime-green;;
         }
     }
 
