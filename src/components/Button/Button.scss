@@ -1,47 +1,51 @@
 @import "../../styles/variables";
 
-   .btn {
-    display: flex;
-    flex-direction: row;
-    border: none;
-    font-size: 1.6rem;
-    font-weight: 600;
-    margin: $m-medium;
+.btn {
+  display: flex;
+  flex-direction: row;
+  border: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: $m-medium;
+  cursor: pointer;
+  padding: 1rem 3.5rem;
+  border-radius: 4rem;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.2s;
 
-   
-    cursor: pointer;
-    padding: 1rem 2.5rem;
-    border-radius: 4rem;
-    transition: all .2s;
-    text-transform: uppercase;
-    
-    &--green {
-        background-color: $color-lime-green;
-        color: $black-color;
+  &--green {
+    background-color: $color-lime-green;
+    color: $black-color;
 
-        &:hover {
-            background-color: $black-color;
-            color: $defaultColor;
-        }
+    &:hover {
+      background-color: $black-color;
+      color: $defaultColor;
     }
+  }
 
-    &--transparent {
-        background-color: $defaultColor;
-        color: $black-color;
-        border: 0.2px solid $color-dark-green;
+  &--transparent {
+    background-color: $defaultColor;
+    color: $black-color;
+    border: 0.2px solid $color-dark-green;
 
-        &:hover {
-            background-color: $color-lime-green;
-            color: $black-color;
-          
-        }
+    &:hover {
+      background-color: $color-lime-green;
+      color: $black-color;
     }
-       
-    
-        
-  
+  }
+
+  &--footer {
+    padding: 0.5rem 1.5rem;
+    font-size: 1.3rem;
+    background-color: $defaultColor;
+    color: $black-color;
+    border: 0.2px solid $color-dark-green;
+    max-width: 40%;
+
+    &:hover {
+      background-color: $color-lime-green;
+      color: $black-color;
     }
-
-
-
-
+  }
+}

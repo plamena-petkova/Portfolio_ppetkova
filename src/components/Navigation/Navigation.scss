@@ -3,7 +3,8 @@
 
 .container__nav {
     display: flex;
-
+    flex-wrap: wrap;
+    
     &--btn {
         display: flex;
         flex-direction: row;
@@ -15,7 +16,7 @@
         
         &:not(:last-child),
         &:not(:first-child){
-            margin: 2.5rem;
+            margin: 1.5rem;
         }
 
         &:hover {
