@@ -35,6 +35,20 @@
     }
   }
 
+  &--project {
+    background-color: $defaultColor;
+    color: $black-color;
+    border: 0.2px solid $color-dark-green;
+    padding: 1rem 2.5rem;
+    margin: $m-small;
+
+    &:hover {
+      background-color: $color-lime-green;
+      color: $black-color;
+    }
+  }
+
+
   &--footer {
     padding: 0.5rem 1.5rem;
     font-size: 1.3rem;
