@@ -1,0 +1,21 @@
+@import "../../../styles/variables";
+
+.project__card {
+
+  position: relative;
+
+  &--img {
+    width: 100%;
+    height: 100%;
+
+
+  }
+
+  &--heading {
+    color: $defaultColor;
+    font-size: 2rem;
+    position: absolute;
+   text-align: center;
+   margin: 2rem;
+  } 
+}

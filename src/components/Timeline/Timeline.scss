@@ -1,5 +1,75 @@
 @import "../../styles/variables";
 
+
+
+.timeline {
+  margin: 0 auto;
+  max-width: 80vw;
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 3px 1fr;
+  font-family: $font-default;
+  color: $black-color;
+ 
+
+  &__component {
+    margin: 0 20px 20px 20px;
+
+    &--bg {
+      padding: 1.5em;
+      background: $color-light-grey;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+    &--bottom {
+      margin-bottom: 0;
+    }
+  } 
+
+  &__middle {
+    position: relative;
+    background: $color-lime-green;
+  }
+
+  &__point {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    background: $color-lime-green;
+    border-radius: 50%;
+  }
+
+  &__point--bottom {
+    top: initial;
+    bottom: 0;
+  }
+
+  &__date {
+    color: $color-dark-green;
+    font-size: 1.4rem;
+
+    &--right {
+      text-align: right;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  &__paragraph {
+    line-height: 1.5;
+  }
+}
+
+
+
+/*
 .container__timestamp {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -78,3 +148,5 @@
     }
   }
 }
+
+*/

@@ -1,0 +1,19 @@
+@import "../../../styles/variables";
+
+
+.container__projects {
+    /*
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+    margin: 2rem;
+    */
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    margin: $m-large;
+    grid-gap: 4rem;
+  
+}
