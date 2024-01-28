@@ -1,0 +1,81 @@
+@import "../../styles/variables";
+
+.modal__background {
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(1rem);
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+
+  &--container {
+    width: 40vw;
+    height: 50vh;
+    border-radius: 3rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+    
+
+    &-title {
+      display: inline-block;
+      text-align: center;
+      font-size: 2rem;
+      &-span {
+        color: $color-dark-green;
+        font-style: italic;
+        font-weight: 400;
+      }
+      &-name {
+        color: $color-dark-green;
+        font-weight: 400;
+      }
+    }
+
+    &-body {
+      flex: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      font-size: 1.7rem;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    &-footer {
+        flex: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &-btn {
+            width: 15rem;
+            height: 4.5rem;
+            margin: 1rem;
+            border: none;
+            background-color: cornflowerblue;
+            color: white;
+            border-radius: 0.8rem;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    }
+
+    &--close {
+      display: flex;
+      justify-content: flex-end;
+        &-btn {
+            background-color: transparent;
+            border: none;
+            font-size: 2.5rem;
+            cursor: pointer;
+        }
+    }
+  }
+}

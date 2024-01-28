@@ -11,7 +11,7 @@ export function Footer() {
       </div>
       <div className="container__footer--contact-form">
         <label
-          for="contact-form"
+          htmlFor="contact-form"
           className="container__footer--contact-form-label"
         >
           Contact <span>Me</span>
@@ -46,22 +46,22 @@ export function Footer() {
       </div>
       <div className="container__footer--socials">
        <p>&copy;Plamena Petkova 2024. All rights reserved.</p> 
-        <div class="container__footer--socials-heading">
-          Social Networks
+        <div className="container__footer--socials-heading">
+         
         </div>
         <div className="container__footer--socials-icons">
-          <label for="linkedin">
-            <button class="btn__socials">
+          <label htmlFor="linkedin">
+            <button className="btn__socials">
             <SocialIcon bgColor="transparent" url="https://linkedin.com" href="https://www.linkedin.com/in/plamena-petkova-a1280163/" />
             </button>
           </label>
-          <label for="facebook">
-            <button class="btn__socials">
+          <label htmlFor="facebook">
+            <button className="btn__socials">
             <SocialIcon bgColor="transparent" url="https://github.com" href="https://github.com/plamena-petkova" />
             </button>
           </label>
-          <label for="email">
-            <button class="btn__socials">
+          <label htmlFor="email">
+            <button className="btn__socials">
             <SocialIcon bgColor="transparent" url="https://gmail.com" />
             </button>
           </label>

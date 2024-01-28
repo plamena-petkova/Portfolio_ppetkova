@@ -1,7 +1,7 @@
 import "./Button.scss";
 
-export function Button({caption, buttonClass}) {
+export function Button({caption, buttonClass, btnClicked}) {
   return (
-   <button className={buttonClass}>{caption}</button>
+   <button onClick={btnClicked} className={buttonClass}>{caption}</button>
   );
 }

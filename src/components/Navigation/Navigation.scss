@@ -3,21 +3,30 @@
 
 .container__nav {
     display: flex;
-    flex-wrap: wrap;
-    
-    &--btn {
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+  
+
+    &--contact {
+        padding: 3rem;
+    }
+  
+    &--left-side {
         display: flex;
         flex-direction: row;
-        border: 1.5px solid $defaultColor;
-        font-size: 1.6rem;
-        background-color: $defaultColor;
+        align-items: center;
+    }
+
+
+    &--btn {
+        border: 1.5px solid transparent;
+        font-size: 2rem;
+        background-color: transparent;
         color: $color-dark-green;
         cursor: pointer;
-        
-        &:not(:last-child),
-        &:not(:first-child){
-            margin: 1.5rem;
-        }
+        margin: 2rem;
 
         &:hover {
             border-bottom: 1.5px solid $color-dark-green;
