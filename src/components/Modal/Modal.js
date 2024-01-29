@@ -1,4 +1,7 @@
 import "./Modal.scss";
+import iconSet from "../../assets/selection.json";
+import IcomoonReact from "icomoon-react";
+import { SocialIcon } from "react-social-icons";
 
 export function Modal({ setOpenModal }) {
   return (
@@ -24,20 +27,61 @@ export function Modal({ setOpenModal }) {
           </h3>
         </div>
         <div className="modal__background--container-body">
-          <div className="modal__container-body-location">
-            <p>Varna</p>
+          <div className="modal__background--container-body-left">
+            <div className="modal__background--container-body-left-location">
+              <button className="modal__btn">
+                <IcomoonReact
+                  iconSet={iconSet}
+                  color="#00db00"
+                  size={50}
+                  icon="location"
+                />
+              </button>
+              Varna, Bulgaria
+            </div>
+            <div className="modal__background--container-body-left-email">
+              {" "}
+              <button className="modal__btn">
+                <IcomoonReact
+                  iconSet={iconSet}
+                  color="#00db00"
+                  size={50}
+                  icon="mail"
+                />
+              </button>
+              pl.petkova@gmail.com
+              <button className="modal__btn">
+                <IcomoonReact
+                  iconSet={iconSet}
+                  color="#00db00"
+                  size={20}
+                  icon="copy"
+                />
+              </button>
+            </div>
           </div>
-          <div className="modal__container-body-mobile-phone">
-            <p>+359000000000</p>
-          </div>
-          <div className="modal__container-body-email">
-            <p>pl.petkova@gmail.com</p>
-          </div>
-          <div className="modal__container-body-github">
-            <p>Github</p>
-          </div>
-          <div className="modal__container-body-linkedin">
-            <p>Linkedin</p>
+          <div className="modal__background--container-body-right">
+            <div className="modal__background--container-body-right-linkedin">
+              {" "}
+              <button className="modal__btn">
+                <SocialIcon
+                  bgColor="#00db00"
+                  url="https://linkedin.com"
+                  href="https://www.linkedin.com/in/plamena-petkova-a1280163/"
+                />
+              </button>
+              LinkedIn
+            </div>
+            <div className="modal__background--container-body-right-github">
+              <button className="modal__btn">
+                <SocialIcon
+                  bgColor="#00db00"
+                  url="https://github.com"
+                  href="https://github.com/plamena-petkova"
+                />
+              </button>
+              Github
+            </div>
           </div>
         </div>
       </div>

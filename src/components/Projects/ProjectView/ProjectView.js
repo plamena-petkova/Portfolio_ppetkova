@@ -7,6 +7,7 @@ export function ProjectView({ items }) {
       <ProjectItem />
       <ProjectItem />
       <ProjectItem />
+      <ProjectItem />
     </div>
   );
 }
