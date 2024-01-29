@@ -3,7 +3,7 @@
 
 .container__projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(30rem, 1fr));
     
     margin: $m-xtra-large $m-large;
     grid-gap: 4rem;
