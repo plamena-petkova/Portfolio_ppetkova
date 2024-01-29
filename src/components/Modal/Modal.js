@@ -2,8 +2,11 @@ import "./Modal.scss";
 import iconSet from "../../assets/selection.json";
 import IcomoonReact from "icomoon-react";
 import { SocialIcon } from "react-social-icons";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export function Modal({ setOpenModal }) {
+  const valueToCopy = "pl.petkova@gmail.com";
+
   return (
     <div className="modal__background">
       <div className="modal__background--container">
@@ -41,7 +44,10 @@ export function Modal({ setOpenModal }) {
             </div>
             <div className="modal__background--container-body-left-email">
               {" "}
-              <button className="modal__btn">
+              <button
+                onClick={() => console.log("Clicked")}
+                className="modal__btn"
+              >
                 <IcomoonReact
                   iconSet={iconSet}
                   color="#00db00"
@@ -50,14 +56,16 @@ export function Modal({ setOpenModal }) {
                 />
               </button>
               pl.petkova@gmail.com
-              <button className="modal__btn">
-                <IcomoonReact
-                  iconSet={iconSet}
-                  color="#00db00"
-                  size={20}
-                  icon="copy"
-                />
-              </button>
+              <CopyToClipboard text={valueToCopy}>
+                <button className="modal__btn">
+                  <IcomoonReact
+                    iconSet={iconSet}
+                    color="#00db00"
+                    size={20}
+                    icon="copy"
+                  />
+                </button>
+              </CopyToClipboard>
             </div>
           </div>
           <div className="modal__background--container-body-right">
@@ -88,20 +96,3 @@ export function Modal({ setOpenModal }) {
     </div>
   );
 }
-
-/*
-        <div className="modal__background--container-footer">
-          <button
-            onClick={() => {
-              setOpenModal(false);
-            }}
-            id="cancelBtn"
-            className="modal__background--container-footer-btn"
-          >
-            Cancel
-          </button>
-          <button className="modal__background--container-footer-btn">
-            Continue
-          </button>
-        </div>
-*/
