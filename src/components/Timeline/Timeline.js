@@ -2,7 +2,7 @@ import "./Timeline.scss";
 
 export function Timeline() {
   return (
-    <div className="timeline">
+    <section id="timeline" className="timeline">
       <div className="timeline__component">
         <div className="timeline__date timeline__date--right">2000-2005</div>
       </div>
@@ -51,7 +51,7 @@ export function Timeline() {
       </div>
 
 
-    </div>
+    </section>
   );
 }
 

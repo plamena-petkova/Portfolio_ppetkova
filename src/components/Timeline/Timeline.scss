@@ -18,7 +18,7 @@
     &--bg {
       padding: 1.5em;
       background: $color-light-grey;
-      box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+      box-shadow: $shadow;
       border-radius: 10px;
     }
     &--bottom {

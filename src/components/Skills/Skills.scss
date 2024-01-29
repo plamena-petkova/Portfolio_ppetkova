@@ -1,0 +1,53 @@
+@import "../../styles/variables";
+
+.container__skills {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+
+  &-heading {
+    justify-content: center;
+  }
+
+  &-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 5rem;
+    width: 100%;
+    height: auto;
+    padding: 2rem 5.5rem;
+    margin: 2.5rem;
+
+    &-frontend-icon,
+    &-backend-icon,
+    &-others-icon {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &-list {
+    background-color: $defaultColor;
+    padding: 2rem;
+    border-radius: 4rem;
+    box-shadow: $shadow;
+    border: 1px solid $color-dark-green;
+
+    &-item-box {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      & > p {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  &-list > * {
+    list-style: none;
+    margin: 1rem;
+    font-size: 1.6rem;
+    align-items: center;
+  }
+}

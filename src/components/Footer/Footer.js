@@ -5,7 +5,7 @@ import { SocialIcon } from 'react-social-icons'
 
 export function Footer() {
   return (
-    <footer className="container__footer">
+    <footer id="footer" className="container__footer">
       <div className="container__footer--image">
         <img src={logo} alt="logo" className="container__footer--image-logo" />
       </div>
@@ -14,7 +14,7 @@ export function Footer() {
           htmlFor="contact-form"
           className="container__footer--contact-form-label"
         >
-          Contact <span>Me</span>
+          Get in touch
         </label>
         <form
           id="contact-form"

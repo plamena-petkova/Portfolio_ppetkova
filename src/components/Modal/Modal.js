@@ -1,10 +1,11 @@
 import "./Modal.scss";
+import { Link } from 'react-router-dom';
 import iconSet from "../../assets/selection.json";
 import IcomoonReact from "icomoon-react";
-import { SocialIcon } from "react-social-icons";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export function Modal({ setOpenModal }) {
+
   const valueToCopy = "pl.petkova@gmail.com";
 
   return (
@@ -36,7 +37,7 @@ export function Modal({ setOpenModal }) {
                 <IcomoonReact
                   iconSet={iconSet}
                   color="#00db00"
-                  size={50}
+                  size={40}
                   icon="location"
                 />
               </button>
@@ -45,13 +46,12 @@ export function Modal({ setOpenModal }) {
             <div className="modal__background--container-body-left-email">
               {" "}
               <button
-                onClick={() => console.log("Clicked")}
                 className="modal__btn"
               >
                 <IcomoonReact
                   iconSet={iconSet}
                   color="#00db00"
-                  size={50}
+                  size={40}
                   icon="mail"
                 />
               </button>
@@ -71,24 +71,30 @@ export function Modal({ setOpenModal }) {
           <div className="modal__background--container-body-right">
             <div className="modal__background--container-body-right-linkedin">
               {" "}
+              <Link to="https://github.com/plamena-petkova">
               <button className="modal__btn">
-                <SocialIcon
-                  bgColor="#00db00"
-                  url="https://linkedin.com"
-                  href="https://www.linkedin.com/in/plamena-petkova-a1280163/"
-                />
+              <IcomoonReact
+                    iconSet={iconSet}
+                    color="#00db00"
+                    size={40}
+                    icon="github"
+                  />
               </button>
-              LinkedIn
+              </Link>
+              Github
             </div>
             <div className="modal__background--container-body-right-github">
+            <Link to="https://www.linkedin.com/in/plamena-petkova-a1280163/">
               <button className="modal__btn">
-                <SocialIcon
-                  bgColor="#00db00"
-                  url="https://github.com"
-                  href="https://github.com/plamena-petkova"
-                />
+              <IcomoonReact
+                    iconSet={iconSet}
+                    color="#00db00"
+                    size={40}
+                    icon="linkedin"
+                  />
               </button>
-              Github
+              </Link>
+              LinkedIn
             </div>
           </div>
         </div>

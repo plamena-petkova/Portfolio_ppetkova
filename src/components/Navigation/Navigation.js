@@ -9,17 +9,17 @@ export function Navigation() {
 
   return (
     
-    <nav className="container__nav">
+    <nav id="#home" className="container__nav">
      
       <div className="container__nav--left-side">
         <div className="container__nav--logo">
-          <img src={logo} alt="" className="container__nav--logo-img" />
+          <img src={logo} alt="logo" className="container__nav--logo-img" />
         </div>
         <div className="container__nav--buttons">
-          <button className="container__nav--btn">Home</button>
-          <button className="container__nav--btn">Timeline</button>
-          <button className="container__nav--btn">Projects</button>
-          <button className="container__nav--btn">Certificates</button>
+          <a href="#home" className="container__nav--btn">Home</a>
+          <a href="#timeline" className="container__nav--btn">Timeline</a>
+          <a href="#projects" className="container__nav--btn">Projects</a>
+          <a href="#skills" className="container__nav--btn">Skills</a>
         </div>
       </div>
      
