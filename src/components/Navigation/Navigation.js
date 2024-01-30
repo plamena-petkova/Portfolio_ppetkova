@@ -9,8 +9,7 @@ export function Navigation() {
 
   return (
     
-    <nav id="#home" className="container__nav">
-     
+    <nav id="#home" className="container__nav"> 
       <div className="container__nav--left-side">
         <div className="container__nav--logo">
           <img src={logo} alt="logo" className="container__nav--logo-img" />
@@ -20,9 +19,9 @@ export function Navigation() {
           <a href="#timeline" className="container__nav--btn">Timeline</a>
           <a href="#projects" className="container__nav--btn">Projects</a>
           <a href="#skills" className="container__nav--btn">Skills</a>
+          <a href="#certificates" className="container__nav--btn">Certificates</a>
         </div>
       </div>
-     
       <div className="contaner__nav--contact">
         <Button buttonClass={'btn btn--transparent'} caption={'Contacts'} btnClicked={setModalOpen} />
       </div>

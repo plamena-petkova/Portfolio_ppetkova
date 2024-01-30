@@ -1,10 +1,10 @@
 import { ProjectItem } from "../ProjectItem/ProjectItem";
 import "./ProjectView.scss";
 
-export function ProjectView({ items }) {
+export function ProjectView() {
   return (
     <section id="projects" className="container__projects">
-      <ProjectItem />
+      <ProjectItem  />
     </section>
   );
 }

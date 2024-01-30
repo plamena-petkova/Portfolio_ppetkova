@@ -4,6 +4,8 @@ import { Button } from "../../Button/Button";
 import { Chip } from "../../Chip/Chip";
 
 export function ProjectItem() {
+
+
   return (
     <article className="project__card">
       <div className="project__card--picture">
@@ -34,7 +36,6 @@ export function ProjectItem() {
         <Button hrefLink={'https://chatzak.onrender.com'} caption={"Live Demo"} buttonClass={"btn btn--project"} />
         <Button caption={"Github"} buttonClass={"btn btn--project"} />
         </div>
-       
       </div>
     </article>
   );

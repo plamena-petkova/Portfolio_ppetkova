@@ -1,0 +1,39 @@
+@import "../../styles/variables";
+
+.container__certificates {
+
+  &-heading-text {
+    text-align: center;
+    font-size: 4rem;
+  }
+
+  &-profit-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 3rem 0;
+    font-size: 2rem;
+
+    & > * {
+      margin-left: 2rem;
+    }
+  }
+
+  &-text-p {
+    font-size: 2.6rem;
+  }
+
+  &-part {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-gap: 2rem;
+    margin: $m-medium $m-medium;
+    padding: 0 2rem;
+    align-items: center;
+    
+    & > * {
+        min-width: 50%;
+    }
+
+  }
+}

@@ -7,12 +7,21 @@
     justify-content: space-between;
     align-items: center;
 
-    @media only screen and (max-width: 600px) {
-        flex-direction: column;
+    &--buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+
+        @media only screen and (max-width: 600px) {
+            flex-direction: column;
+        }
     }
 
-
-  
+    @media only screen and (max-width: 800px) {
+        flex-direction: column;
+    }
 
     &--contact {
         padding: 3rem;
@@ -23,7 +32,7 @@
         flex-direction: row;
         align-items: center;
 
-        @media only screen and (max-width: 650px) {
+        @media only screen and (max-width: 800px) {
             flex-direction: column;
         }
     
