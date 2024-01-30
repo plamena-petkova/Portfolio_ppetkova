@@ -31,7 +31,7 @@ export function ProjectItem() {
           tempore aliquam error?
         </p>
         <div className="project__card-btns">
-        <Button caption={"Live Demo"} buttonClass={"btn btn--project"} />
+        <Button hrefLink={'https://chatzak.onrender.com'} caption={"Live Demo"} buttonClass={"btn btn--project"} />
         <Button caption={"Github"} buttonClass={"btn btn--project"} />
         </div>
        

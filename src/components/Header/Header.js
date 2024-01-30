@@ -20,7 +20,7 @@ export function Header() {
       
         </p>
         <div className="container__header--btn">
-          <Button caption={"Projects"} buttonClass={"btn btn--green"} />
+          <Button caption={"Projects"} buttonClass={"btn btn--green"} pageLink={'#projects'} />
           <Button
             caption={"Download CV"}
             buttonClass={"btn btn--transparent"}

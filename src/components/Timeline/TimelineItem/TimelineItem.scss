@@ -1,0 +1,61 @@
+@import "../../../styles/variables";
+
+
+.timeline {
+    &__component {
+        margin: 0 20px 20px 20px;
+    
+        &--bg {
+          padding: 1.5em;
+          background: $color-light-grey;
+          box-shadow: $shadow;
+          border-radius: 10px;
+        }
+        &--bottom {
+          margin-bottom: 0;
+        }
+      } 
+    
+      &__middle {
+        position: relative;
+        background: $color-lime-green;
+      }
+    
+      &__point {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 15px;
+        height: 15px;
+        background: $color-lime-green;
+        border-radius: 50%;
+      }
+    
+      &__point--bottom {
+        top: initial;
+        bottom: 0;
+      }
+    
+      &__date {
+        color: $color-dark-green;
+        font-size: 1.4rem;
+    
+        &--right {
+          text-align: right;
+        }
+      }
+    
+      &__title {
+        margin: 0;
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
+    
+      &__paragraph {
+        line-height: 1.5;
+      }
+    
+    
+}
+

@@ -1,0 +1,18 @@
+@import "../../../styles/variables";
+
+
+
+.timeline {
+  margin: 0 auto;
+  max-width: 80vw;
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 3px 1fr;
+  font-family: $font-default;
+  color: $black-color;
+
+  & > * :odd {
+    color: red;
+  }
+ 
+}
