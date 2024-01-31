@@ -1,5 +1,6 @@
 import { Button } from "../Button/Button";
 import avatar from "../../assets/profile-avatar.png";
+import CV from "../../assets/CV_Plamena_Petkova.pdf";
 import "./Header.scss";
 
 export function Header() {
@@ -20,11 +21,12 @@ export function Header() {
       
         </p>
         <div className="container__header--btn">
-          <Button caption={"Projects"} buttonClass={"btn btn--green"} pageLink={'projects'} />
+          <Button caption={"Projects"} buttonClass={"btn btn--green"} hrefLink={'#projects'} />
           <Button
             caption={"Download CV"}
             buttonClass={"btn btn--transparent"}
-            hrefLink={"src/assets/CV_Plamena_Petkova.pdf"}
+            hrefLink={CV}
+            download={true}
           />
         </div>
       </div>

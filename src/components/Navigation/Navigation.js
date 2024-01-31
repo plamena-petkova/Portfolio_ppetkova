@@ -9,7 +9,7 @@ export function Navigation() {
 
   return (
     
-    <nav id="#home" className="container__nav"> 
+    <nav id="home" className="container__nav"> 
       <div className="container__nav--left-side">
         <div className="container__nav--logo">
           <img src={logo} alt="logo" className="container__nav--logo-img" />
