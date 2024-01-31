@@ -24,7 +24,7 @@ export function Footer() {
           <div className="container__footer--contact-form--input-items">
             <input
               type="text"
-              placeholder="First Name Last Name"
+              placeholder="Name"
               className="container__footer--contact-form-name"
             />
             <input

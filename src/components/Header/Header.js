@@ -20,10 +20,11 @@ export function Header() {
       
         </p>
         <div className="container__header--btn">
-          <Button caption={"Projects"} buttonClass={"btn btn--green"} pageLink={'#projects'} />
+          <Button caption={"Projects"} buttonClass={"btn btn--green"} pageLink={'projects'} />
           <Button
             caption={"Download CV"}
             buttonClass={"btn btn--transparent"}
+            hrefLink={"src/assets/CV_Plamena_Petkova.pdf"}
           />
         </div>
       </div>

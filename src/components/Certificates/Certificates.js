@@ -39,12 +39,12 @@ export function Certificates() {
             <img src={SCSS} alt="certificate 6" />
           </div>
         </Carousel>
-
         <div className="container__certificates-profits">
           <p className="container__certificates-text-p">
-            All the certificates doesn't make sense if we are not disciplined
-            and have the passion to learn and practice more and more. That's why
-            I follow these simple rules:
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque
+            blanditiis vel voluptatem repellendus, doloribus temporibus aliquam
+            modi molestias dolores, voluptate rem quia eum natus veniam. Placeat
+            a natus doloribus quis!Lorem
           </p>
 
           <div className="container__certificates-profits-icons">
