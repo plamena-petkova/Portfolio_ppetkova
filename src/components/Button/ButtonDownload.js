@@ -1,18 +1,21 @@
 import { HashLink } from "react-router-hash-link";
 import "./Button.scss";
 
-export function Button({
+export function ButtonDownload({
   caption,
   buttonClass,
   btnClicked,
-  hrefLink
+  hrefLink,
+  download,
 }) {
-
 
   return (
     <HashLink
-      className="link"
+      target="_blank"
+      rel="noreferrer"
       to={hrefLink}
+      download={download}
+      className="link"
     >
       <button onClick={btnClicked} className={buttonClass}>
         {caption}

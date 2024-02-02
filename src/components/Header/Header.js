@@ -2,6 +2,7 @@ import { Button } from "../Button/Button";
 import avatar from "../../assets/profile-avatar.png";
 import CV from "../../assets/CV_Plamena_Petkova.pdf";
 import "./Header.scss";
+import { ButtonDownload } from "../Button/ButtonDownload";
 
 export function Header() {
   return (
@@ -22,7 +23,7 @@ export function Header() {
         </p>
         <div className="container__header--btn">
           <Button caption={"Projects"} buttonClass={"btn btn--green"} hrefLink={'#projects'} />
-          <Button
+          <ButtonDownload
             caption={"Download CV"}
             buttonClass={"btn btn--transparent"}
             hrefLink={CV}

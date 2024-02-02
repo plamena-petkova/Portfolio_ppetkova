@@ -42,7 +42,7 @@ export function TimelineItem({ number, date, place, information }) {
   return (
    <>
     {number% 2 === 0 && leftComponent()}
-    {number% 2 !== 0 &&rightComponent()}
+    {number% 2 !== 0 && rightComponent()}
 
    </>
   );
