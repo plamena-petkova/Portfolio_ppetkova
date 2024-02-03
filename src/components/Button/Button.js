@@ -5,15 +5,11 @@ export function Button({
   caption,
   buttonClass,
   btnClicked,
-  hrefLink
+  hrefLink,
 }) {
 
-
   return (
-    <HashLink
-      className="link"
-      to={hrefLink}
-    >
+    <HashLink className="link" to={hrefLink}>
       <button onClick={btnClicked} className={buttonClass}>
         {caption}
       </button>
