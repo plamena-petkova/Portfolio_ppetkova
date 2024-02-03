@@ -2,21 +2,30 @@
 
 .container__skills {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
   margin: $m-large 0;
 
-  &-heading {
-    justify-content: center;
+  &-heading-text {
+    text-align: center;
+    font-size: 4rem;
+  
+    &-italic {
+        font-style: italic;
+        font-size: 4.5rem;
+        font-weight: 200;
+        color: $color-dark-green;
+
+    }
   }
 
   &-items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-gap: 5rem;
-    width: 100%;
+    width: 90%;
     height: auto;
-    padding: 2rem 5.5rem;
+    padding: 2rem 2.5rem;
     margin: 2.5rem;
 
     &-frontend-icon,

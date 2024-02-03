@@ -1,19 +1,30 @@
 @import "../../../styles/variables";
 
-
-
 .timeline {
-  margin: 0 auto;
-  max-width: 80vw;
-  padding: 2.5rem;
-  display: grid;
-  grid-template-columns: 1fr 3px 1fr;
-  font-family: $font-default;
-  color: $black-color;
+  margin: 8rem 0;
 
-  @media only screen and (max-width: 600px) {
-    max-width: 100vw;
-    padding: 1.5rem;
-}
- 
+  &__heading-italic {
+    text-align: center;
+    font-style: italic;
+    font-size: 5.5rem;
+    font-weight: 200;
+    color: $color-dark-green;
+    margin: 4rem 0;
+  }
+
+  &__wrapper {
+    margin: 0 auto;
+    max-width: 80vw;
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 3px 1fr;
+    grid-template-rows: 1fr auto;
+    font-family: $font-default;
+    color: $black-color;
+
+    @media only screen and (max-width: 600px) {
+      max-width: 100vw;
+      padding: 1.5rem;
+    }
+  }
 }

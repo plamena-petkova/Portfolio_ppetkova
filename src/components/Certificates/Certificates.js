@@ -14,7 +14,7 @@ import iconSet from "../../assets/selection.json";
 export function Certificates() {
   return (
     <section id="certificates" className="container__certificates">
-      <h1 className="container__certificates-heading-text">Certificates</h1>
+      <h1 className="container__certificates-heading-text"><span className="container__certificates-heading-text-italic">My</span> Certificates</h1>
       <div className="container__certificates-part">
         <Carousel width={"80%"} showThumbs={false} infiniteLoop={true}>
           <div>

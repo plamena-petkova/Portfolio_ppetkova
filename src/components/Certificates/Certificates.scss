@@ -5,6 +5,13 @@
   &-heading-text {
     text-align: center;
     font-size: 4rem;
+
+    &-italic {
+      font-style: italic;
+      font-size: 5.5rem;
+      font-weight: 200;
+      color: $color-dark-green;
+    }
   }
 
   &-profit-item {

@@ -5,6 +5,9 @@ import "./Skills.scss";
 export function Skills() {
   return (
     <section id="skills" className="container__skills">
+      <div className="container__skills-heading">
+        <h2 className="container__skills-heading-text">My <span className="container__skills-heading-text-italic">Skills</span></h2>
+      </div>
       <div className="container__skills-items">
         <div className="container__skills-items-frontend">
           <section className="container__skills-list">

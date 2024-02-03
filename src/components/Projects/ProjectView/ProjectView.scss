@@ -3,9 +3,22 @@
 
 .container__projects {
     display: grid;
-    grid-template-rows: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-template-rows: 1fr repeat(auto-fit, minmax(30rem, 1fr));
     
     margin: $m-large;
     grid-gap: 4rem;
+
+    &-heading {
+        text-align: center;
+        font-size: 3.5rem;
+      
+        &--italic {
+            font-style: italic;
+            font-size: 4.5rem;
+            font-weight: 200;
+            color: $color-dark-green;
+    
+        }
+    }
   
 }

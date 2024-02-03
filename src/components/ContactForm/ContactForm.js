@@ -22,7 +22,14 @@ export function ContactForm() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    resetValues();
+
+    if(formValues.email === '' && formValues.name === '' && formValues.message === '') {
+      return;
+    } else {
+      resetValues();
+    }
+
+
 
     emailjs
       .sendForm(
