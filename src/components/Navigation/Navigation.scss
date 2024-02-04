@@ -24,7 +24,10 @@
     }
 
     &--contact {
-        padding: 3rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+       
     }
   
     &--left-side {

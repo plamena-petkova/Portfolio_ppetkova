@@ -3,6 +3,7 @@ import { TimelineItem } from "../TimelineItem/TimelineItem";
 
 export function TimelineView() {
   return (
+    <>
     <section id="timeline" className="timeline">
       <h2 className="timeline__heading-italic">Timeline</h2>
       <div className="timeline__wrapper">
@@ -42,7 +43,9 @@ export function TimelineView() {
         information={"Learnig and develope my skills"}
         number={6}
       />
-      </div>
+       </div>
     </section>
+    <div className="timeline-end-arrow"></div>
+     </>
   );
 }
