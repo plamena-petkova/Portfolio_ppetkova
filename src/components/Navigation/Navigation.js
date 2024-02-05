@@ -7,7 +7,7 @@ import { DarkModeSwitch } from "react-toggle-dark-mode";
 
 //import { ButtonToggle } from "../ButtonToggle/ButtonToggle";
 
-export function Navigation({theme}) {
+export function Navigation() {
   const [modalOpen, setModalOpen] = useState(false);
 
   const [isDarkMode, setDarkMode] = useState(false);
@@ -16,7 +16,6 @@ export function Navigation({theme}) {
     setDarkMode(checked);
   };
 
-  theme(isDarkMode);
 
   useEffect(() => { 
     if (isDarkMode) {
