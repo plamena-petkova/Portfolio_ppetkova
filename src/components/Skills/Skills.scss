@@ -14,7 +14,7 @@
         font-style: italic;
         font-size: 4.5rem;
         font-weight: 200;
-        color: $color-dark-green;
+        color: var(--color-dark-green);
 
     }
   }
@@ -37,11 +37,11 @@
   }
 
   &-list {
-    background-color: $defaultColor;
+    background-color: transparent;
     padding: 2rem;
     border-radius: 4rem;
     box-shadow: $shadow;
-    border: 1px solid $color-dark-green;
+    border: 1px solid var(--color-dark-green);
 
     &-item-box {
       display: flex;

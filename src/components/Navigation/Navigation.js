@@ -2,12 +2,12 @@ import "./Navigation.scss";
 import logo from "../../assets/LogoProfile.png";
 import { Button } from "../Button/Button";
 import { Modal } from "../Modal/Modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
 //import { ButtonToggle } from "../ButtonToggle/ButtonToggle";
 
-export function Navigation() {
+export function Navigation({theme}) {
   const [modalOpen, setModalOpen] = useState(false);
 
   const [isDarkMode, setDarkMode] = useState(false);
@@ -16,7 +16,15 @@ export function Navigation() {
     setDarkMode(checked);
   };
 
-  console.log('IsDarkMode', isDarkMode);
+  theme(isDarkMode);
+
+  useEffect(() => { 
+    if (isDarkMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }, [isDarkMode]); 
 
   return (
     <nav id="home" className="container__nav">

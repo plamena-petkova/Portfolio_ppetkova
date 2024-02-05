@@ -46,18 +46,19 @@
         border: 1.5px solid transparent;
         font-size: 2rem;
         background-color: transparent;
-        color: $color-dark-green;
+        color: var(--color-dark-green);
         cursor: pointer;
         margin: 2rem;
         text-decoration: none;
 
         &:hover {
-            border-bottom: 1.5px solid $color-dark-green;
+            border-bottom: 1.5px solid var(--color-dark-green);
         }
 
         &:visited {
-            border-bottom: 1.5px solid $color-dark-green;
-            background-color: $color-lime-green;;
+            border-bottom: 1.5px solid var(--color-dark-green);
+            //background-color: $color-lime-green;
+            background-color: var(--color-lime-green);
         }
     }
 

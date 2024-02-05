@@ -8,7 +8,7 @@
     
         &--bg {
           padding: 1.5em;
-          background: $color-light-grey;
+          background: var(--color-light-grey);
           box-shadow: $shadow;
           border-radius: 10px;
         }
@@ -19,7 +19,8 @@
     
       &__middle {
         position: relative;
-        background: $color-lime-green;
+        //background: $color-lime-green;
+        background-color: var(--color-lime-green);
       }
     
       &__point {
@@ -29,7 +30,8 @@
         transform: translateX(-50%);
         width: 15px;
         height: 15px;
-        background: $color-lime-green;
+        //background: $color-lime-green;
+        background-color: var(--color-lime-green);
         border-radius: 50%;
       }
     
@@ -39,7 +41,7 @@
       }
     
       &__date {
-        color: $color-dark-green;
+        color: var(--color-dark-green);
         font-size: 1.4rem;
     
         &--right {
