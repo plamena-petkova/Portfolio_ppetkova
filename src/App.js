@@ -7,20 +7,26 @@ import { ProjectView } from "./components/Projects/ProjectView/ProjectView";
 import { Skills } from "../src/components/Skills/Skills"
 import { Certificates } from "../src/components/Certificates/Certificates"
 import { Footer } from "../src/components/Footer/Footer"
+import { HomeView } from "./views/HomeView";
+import { useEffect } from "react";
+import { getDeveloperByUsername } from "./services/developerService";
+import { useState } from "react";
 
 const App = () => {
+
+  const [developer, setDeveloper] = useState({});
+
+  useEffect(() => {
+    getDeveloperByUsername('pl.petkova');
+    setDeveloper(JSON.parse(localStorage.getItem('devResume')));
+
+  }, [])
 
 
 
   return (
     <BrowserRouter basename="/">
-      <Navigation />
-      <Header />
-      <TimelineView />
-      <ProjectView />
-      <Skills />
-      <Certificates />
-      <Footer />
+      <HomeView developer={developer} />
     </BrowserRouter>
   );
 };
