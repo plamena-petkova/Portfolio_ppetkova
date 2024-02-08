@@ -1,20 +1,26 @@
 import "../TimelineItem/TimelineItem.scss";
 
-export function TimelineItem({ number, date, place, information }) {
+export function TimelineItem(props) {
+
+  const {timeline, index} = props;
+
+  const { dates, company, occupation } = timeline;
+
+
+  console.log('Index', index);
+
   const leftComponent = () => {
     return (
       <>
         <div className="timeline__component">
-          <div className="timeline__date timeline__date--right">{date}</div>
+          <div className="timeline__date timeline__date--right">{dates}</div>
         </div>
         <div className="timeline__middle">
           <div className="timeline__point"></div>
         </div>
         <div className="timeline__component timeline__component--bg">
-          <h2 className="timeline__title">{place}</h2>
-          <p className="timeline__paragraph">
-            {information}
-          </p>
+          <h2 className="timeline__title">{company}</h2>
+          <p className="timeline__paragraph">{occupation}</p>
         </div>
       </>
     );
@@ -24,26 +30,23 @@ export function TimelineItem({ number, date, place, information }) {
     return (
       <>
         <div className="timeline__component timeline__component--bg">
-          <h2 className="timeline__title">{place}</h2>
-          <p className="timeline__paragraph">
-            {information}
-          </p>
+          <h2 className="timeline__title">{company}</h2>
+          <p className="timeline__paragraph">{occupation}</p>
         </div>
         <div className="timeline__middle">
           <div className="timeline__point"></div>
         </div>
         <div className="timeline__component">
-          <div className="timeline__date">{date}</div>
+          <div className="timeline__date">{dates}</div>
         </div>
       </>
     );
   };
 
   return (
-   <>
-    {number% 2 === 0 && leftComponent()}
-    {number% 2 !== 0 && rightComponent()}
-
-   </>
+    <>
+      {index % 2 !== 0 && leftComponent()}
+      {index % 2 === 0 && rightComponent()}
+    </>
   );
 }

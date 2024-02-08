@@ -6,19 +6,18 @@ import { ProjectView } from "../components/Projects/ProjectView/ProjectView";
 import { Skills } from "../components/Skills/Skills";
 import { TimelineView } from "../components/Timeline/TimelineView/TimelineView";
 
-export function HomeView({developer}) {
 
-
+export function HomeView() {
 
   return (
     <>
-      <Navigation developer={developer} />
-      <Header developer={developer} />
-      <TimelineView developer={developer} />
-      <ProjectView developer={developer} />
-      <Skills developer={developer} />
-      <Certificates developer={developer} />
-      <Footer developer={developer} />
+      <Navigation />
+      <Header />
+      <TimelineView />
+      <ProjectView />
+      <Skills />
+      <Certificates />
+      <Footer />
     </>
   );
 }

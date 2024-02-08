@@ -2,8 +2,12 @@ import logo from "../../assets/LogoProfile.png";
 import "./Footer.scss";
 import { SocialIcon } from "react-social-icons";
 import { ContactForm } from "../ContactForm/ContactForm";
+import { useDeveloperContext } from "../../context/developerContext";
 
 export function Footer() {
+
+  const {developer} = useDeveloperContext();
+
   return (
     <footer id="footer" className="container__footer">
       <div className="container__footer--image">
@@ -27,7 +31,7 @@ export function Footer() {
               <SocialIcon
                 bgColor="transparent"
                 url="https://linkedin.com"
-                href="https://www.linkedin.com/in/plamena-petkova-a1280163/"
+                href={developer.linkedin}
               />
             </button>
           </label>
@@ -36,13 +40,13 @@ export function Footer() {
               <SocialIcon
                 bgColor="transparent"
                 url="https://github.com"
-                href="https://github.com/plamena-petkova"
+                href={developer.github}
               />
             </button>
           </label>
           <label htmlFor="email">
             <button className="btn__socials">
-              <SocialIcon bgColor="transparent" url="https://gmail.com" />
+              <SocialIcon bgColor="transparent" url={developer.email} />
             </button>
           </label>
         </div>

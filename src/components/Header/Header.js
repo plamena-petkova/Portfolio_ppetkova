@@ -3,8 +3,12 @@ import avatar from "../../assets/profile-avatar.png";
 import CV from "../../assets/CV_Plamena_Petkova.pdf";
 import "./Header.scss";
 import { ButtonDownload } from "../Button/ButtonDownload";
+import { useDeveloperContext } from "../../context/developerContext";
 
 export function Header() {
+
+  const {developer} = useDeveloperContext();
+
   return (
     <section className="container">
       <div className="container__header">
@@ -12,13 +16,7 @@ export function Header() {
           About <span className="container__header--italic">Me</span>
         </h2>
         <p className="container__header--text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. In rem sed
-          quas est dignissimos a sunt tempora similique cupiditate quasi
-          veritatis, magni error sit, ratione repellat? Quibusdam est laborum
-          quam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem,
-          autem sit. Accusamus, aperiam repudiandae doloribus ea sed, eligendi
-          reprehenderit officia odio non cupiditate ipsum suscipit magni ipsa
-          repellendus? Quasi, vitae!
+          {developer.about}
       
         </p>
         <div className="container__header--btn">

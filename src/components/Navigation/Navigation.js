@@ -5,9 +5,9 @@ import { Modal } from "../Modal/Modal";
 import { useEffect, useState } from "react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
-//import { ButtonToggle } from "../ButtonToggle/ButtonToggle";
 
 export function Navigation() {
+
   const [modalOpen, setModalOpen] = useState(false);
 
   const [isDarkMode, setDarkMode] = useState(false);

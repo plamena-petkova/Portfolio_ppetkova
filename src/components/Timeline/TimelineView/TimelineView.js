@@ -1,13 +1,36 @@
 import "../TimelineView/TimelineView.scss";
 import { TimelineItem } from "../TimelineItem/TimelineItem";
+import { useDeveloperContext } from "../../../context/developerContext";
 
 export function TimelineView() {
+  const { timeline } = useDeveloperContext();
+  
+  const timelineArray = Object.values(timeline)[1];
+
   return (
     <>
-    <section id="timeline" className="timeline">
-      <h2 className="timeline__heading-italic">Timeline</h2>
-      <div className="timeline__wrapper">
-      <TimelineItem
+      <section id="timeline" className="timeline">
+        <h2 className="timeline__heading-italic">Timeline</h2>
+        <div className="timeline__wrapper">
+          {timelineArray?.length && timelineArray.map((item, index) => {
+            return (
+              <TimelineItem
+                key={item._id}
+                timeline={item}
+                index={index}
+              />
+            );
+          })}
+        </div>
+      </section>
+      <div className="timeline-end-arrow"></div>
+    </>
+  );
+}
+
+/*
+
+<TimelineItem
         date={"2000-2005"}
         place={"Math School"}
         information={"Studied Math and Informatics"}
@@ -43,9 +66,4 @@ export function TimelineView() {
         information={"Learnig and develope my skills"}
         number={6}
       />
-       </div>
-    </section>
-    <div className="timeline-end-arrow"></div>
-     </>
-  );
-}
+  */

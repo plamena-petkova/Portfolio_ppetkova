@@ -1,20 +1,38 @@
 import "./ProjectItem.scss";
-import logoChat from "../../../assets/remote-5491798_1280.png";
 import { Button } from "../../Button/Button";
 import { Chip } from "../../Chip/Chip";
 
-export function ProjectItem() {
+export function ProjectItem({project}) {
 
+  const techStackArray = Object.values(project.techStack);
+  const items = techStackArray[0].split(',');
 
   return (
     <article className="project__card">
       <div className="project__card--picture">
-        <img src={logoChat} alt="chat-logo" className="project__card--picture-img" />
+        <img src={project.picture} alt="chat-logo" className="project__card--picture-img" />
       </div>
       <div className="project__card--text">
-        <h2 className="project__card--heading">ChatZak</h2>
+        <h2 className="project__card--heading">{project.name}</h2>
         <div className="project__card--text-techstack">
-          <Chip techName={'React'} />
+          {items.map((stack, index) => {
+            return <Chip key={index} techName={stack}/>
+          })}
+        </div>
+        <p>
+          {project.about}
+        </p>
+        <div className="project__card-btns">
+        <Button hrefLink={project.liveDemo} caption={"Live Demo"} buttonClass={"btn btn--project"} />
+        <Button hrefLink={project.gitRepo} caption={'Github Repo'} buttonClass={"btn btn--project"} />
+        </div>
+      </div>
+    </article>
+  );
+}
+
+/*
+         <Chip techName={'React'} />
           <Chip techName={'Material UI'} />
           <Chip techName={'Socket.IO'} />
           <Chip techName={'Node.js/Express'} />
@@ -25,18 +43,5 @@ export function ProjectItem() {
           <Chip techName={'React Router Dom'} />
           <Chip techName={'Uuid'} />
           <Chip techName={'Axios'} />
-        </div>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-          illo odit blanditiis, provident tempora sapiente esse libero vitae
-          voluptates, commodi nam tenetur iure saepe beatae praesentium mollitia
-          tempore aliquam error?
-        </p>
-        <div className="project__card-btns">
-        <Button hrefLink={'https://chatzak.onrender.com'} caption={"Live Demo"} buttonClass={"btn btn--project"} />
-        <Button caption={"Github"} buttonClass={"btn btn--project"} />
-        </div>
-      </div>
-    </article>
-  );
-}
+
+  */
