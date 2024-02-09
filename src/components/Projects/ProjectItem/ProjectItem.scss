@@ -14,10 +14,10 @@
 
 
   &--picture {
-    width: 100%;
-    height: auto;
- 
-    
+    width: 38vw;
+    height: 50vh;
+    align-self: center;
+
 
     &-img {
       width: 100%;
@@ -26,6 +26,7 @@
       cursor: pointer;
       transition: all 0.2s;
       transform: scale(1);
+      border-radius: 4rem;
   
 
       &:hover {

@@ -19,7 +19,6 @@
     
       &__middle {
         position: relative;
-        //background: $color-lime-green;
         background-color: var(--color-lime-green);
       }
     
@@ -30,7 +29,6 @@
         transform: translateX(-50%);
         width: 15px;
         height: 15px;
-        //background: $color-lime-green;
         background-color: var(--color-lime-green);
         border-radius: 50%;
       }

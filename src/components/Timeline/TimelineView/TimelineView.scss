@@ -2,6 +2,8 @@
 
 .timeline {
   margin: 8rem 0;
+  display: flex;
+  flex-direction: column;
 
   &__heading-italic {
     text-align: center;
@@ -14,8 +16,8 @@
 
   &__wrapper {
     margin: 0 auto;
-    max-width: 80vw;
-    padding: 2.5rem;
+    max-width: 90vw;
+    padding: 1.5rem;
     display: grid;
     grid-template-columns: 1fr 3px 1fr;
     grid-template-rows: 1fr auto;

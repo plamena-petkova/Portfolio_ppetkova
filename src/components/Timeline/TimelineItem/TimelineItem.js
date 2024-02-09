@@ -1,4 +1,5 @@
 import "../TimelineItem/TimelineItem.scss";
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 export function TimelineItem(props) {
 
@@ -6,8 +7,9 @@ export function TimelineItem(props) {
 
   const { dates, company, occupation } = timeline;
 
-
-  console.log('Index', index);
+  const isSmallDevice = useMediaQuery(
+    "only screen and (min-width : 300px) and (max-width : 650px)"
+  );
 
   const leftComponent = () => {
     return (
@@ -45,8 +47,9 @@ export function TimelineItem(props) {
 
   return (
     <>
-      {index % 2 !== 0 && leftComponent()}
-      {index % 2 === 0 && rightComponent()}
+      {isSmallDevice && rightComponent()}
+      {!isSmallDevice && index % 2 !== 0 && leftComponent()}
+      {!isSmallDevice && index % 2 === 0 && rightComponent()}
     </>
   );
 }
