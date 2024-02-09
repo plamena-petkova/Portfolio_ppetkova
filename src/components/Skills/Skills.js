@@ -1,12 +1,27 @@
 import IcomoonReact from "icomoon-react";
 import iconSet from "../../assets/selection.json";
 import "./Skills.scss";
+import { useDeveloperContext } from "../../context/developerContext";
 
 export function Skills() {
+  const { skills } = useDeveloperContext();
+
+  const frontSkills = skills?.skills[0]?.frontend;
+  const frontednList = frontSkills[0]?.split(",");
+
+  const backendSkills = skills?.skills[0]?.backend;
+  const othersSkills = skills.skills[0]?.others;
+
+  const backendList = backendSkills[0].split(",");
+  const othersList = othersSkills[0].split(",");
+
   return (
     <section id="skills" className="container__skills">
       <div className="container__skills-heading">
-        <h2 className="container__skills-heading-text">My <span className="container__skills-heading-text-italic">Skills</span></h2>
+        <h2 className="container__skills-heading-text">
+          My{" "}
+          <span className="container__skills-heading-text-italic">Skills</span>
+        </h2>
       </div>
       <div className="container__skills-items">
         <div className="container__skills-items-frontend">
@@ -19,60 +34,22 @@ export function Skills() {
                 icon="embed2"
               />
             </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>Javascript</p>
-            </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>React</p>
-            </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>Angular</p>
-            </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>HTML/CSS/SASS</p>
-            </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>React Redux Toolkit</p>
-            </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>Material UI</p>
-            </div>
+            {frontednList.map((listItem, index) => {
+              return (
+                <div
+                  key={listItem.index}
+                  className="container__skills-list-item-box"
+                >
+                  <IcomoonReact
+                    iconSet={iconSet}
+                    color="#00db00"
+                    size={20}
+                    icon="checkmark"
+                  ></IcomoonReact>
+                  <p>{listItem}</p>
+                </div>
+              );
+            })}
           </section>
         </div>
         <div className="container__skills-items-backend">
@@ -85,60 +62,22 @@ export function Skills() {
                 icon="database"
               />
             </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>Node.js</p>
-            </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>Express</p>
-            </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>MongoDB/Atlas</p>
-            </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>Rest APIs</p>
-            </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>Rest APIs</p>
-            </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>Socket.IO</p>
-            </div>
+            {backendList.map((listItem) => {
+              return (
+                <div
+                  key={listItem.index}
+                  className="container__skills-list-item-box"
+                >
+                  <IcomoonReact
+                    iconSet={iconSet}
+                    color="#00db00"
+                    size={20}
+                    icon="checkmark"
+                  ></IcomoonReact>
+                  <p>{listItem}</p>
+                </div>
+              );
+            })}
           </section>
         </div>
         <div className="container__skills-items-others">
@@ -151,60 +90,22 @@ export function Skills() {
                 icon="stack"
               />
             </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>Github</p>
-            </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>Servicenow</p>
-            </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>Jira</p>
-            </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>Scrum/Agile</p>
-            </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>Firebase</p>
-            </div>
-            <div className="container__skills-list-item-box">
-              <IcomoonReact
-                iconSet={iconSet}
-                color="#00db00"
-                size={20}
-                icon="checkmark"
-              ></IcomoonReact>
-              <p>Rest APIs</p>
-            </div>
+            {othersList.map((listItem, index) => {
+              return (
+                <div
+                  key={listItem.index}
+                  className="container__skills-list-item-box"
+                >
+                  <IcomoonReact
+                    iconSet={iconSet}
+                    color="#00db00"
+                    size={20}
+                    icon="checkmark"
+                  ></IcomoonReact>
+                  <p>{listItem}</p>
+                </div>
+              );
+            })}
           </section>
         </div>
       </div>
@@ -213,4 +114,3 @@ export function Skills() {
   );
 }
 
-//  <h1 className="container__heading">Skills Overview</h1>

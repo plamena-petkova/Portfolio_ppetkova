@@ -2,7 +2,7 @@ import "./App.scss";
 import { BrowserRouter } from "react-router-dom";
 import { HomeView } from "./views/HomeView";
 import { useEffect } from "react";
-import { getDeveloperByUsername, getProjectsByUsername, getTimelineByUsername } from "./services/developerService";
+import { getCertificatesByUsername, getDeveloperByUsername, getProjectsByUsername, getSkillsByUsername, getTimelineByUsername } from "./services/developerService";
 import { DeveloperProvider } from "./context/developerContext";
 
 const App = () => {
@@ -13,6 +13,8 @@ const App = () => {
     getDeveloperByUsername(username);
     getTimelineByUsername(username);
     getProjectsByUsername(username);
+    getSkillsByUsername(username);
+    getCertificatesByUsername(username);
   }, []);
 
   return (

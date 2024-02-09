@@ -1,4 +1,4 @@
-import {developerRoute, projectsRoute, timelineRoute} from "../utils/routes"
+import {certificatesRoute, developerRoute, projectsRoute, skillsRoute, timelineRoute} from "../utils/routes"
 
 
 export const getDeveloperByUsername = async (username) => {
@@ -40,6 +40,33 @@ export const getProjectsByUsername = async (username) => {
 
   try {
     sessionStorage.setItem("devProjects", JSON.stringify(projects));
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+
+export const getSkillsByUsername = async (username) => {
+  const response = await fetch(
+    `${skillsRoute}/${username}`
+  );
+  const skills = await response.json();
+
+  try {
+    sessionStorage.setItem("devSkills", JSON.stringify(skills));
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+export const getCertificatesByUsername = async (username) => {
+  const response = await fetch(
+    `${certificatesRoute}/${username}`
+  );
+  const certificates = await response.json();
+
+  try {
+    sessionStorage.setItem("devCertificates", JSON.stringify(certificates));
   } catch (e) {
     console.error(e);
   }
