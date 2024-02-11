@@ -2,18 +2,24 @@ import IcomoonReact from "icomoon-react";
 import iconSet from "../../assets/selection.json";
 import "./Skills.scss";
 import { useDeveloperContext } from "../../context/developerContext";
+import { useEffect, useState } from "react";
 
 export function Skills() {
   const { skills } = useDeveloperContext();
 
-  const frontSkills = skills?.skills[0]?.frontend;
-  const frontednList = frontSkills[0]?.split(",");
+  const [frontendList, setFrontendList] = useState([]);
+  const [backendList, setBackendList] = useState([]);
+  const [othersList, setOthersList] = useState([]);
+  
 
-  const backendSkills = skills?.skills[0]?.backend;
-  const othersSkills = skills.skills[0]?.others;
+  useEffect(() => {
+    if(skills && skills.skills) {
+      setFrontendList(skills?.skills[0]?.frontend[0].split(', '));
+      setBackendList(skills?.skills[0]?.backend[0].split(', '));
+      setOthersList(skills?.skills[0]?.others[0].split(', '));
+    }
+  }, [skills])
 
-  const backendList = backendSkills[0].split(",");
-  const othersList = othersSkills[0].split(",");
 
   return (
     <section id="skills" className="container__skills">
@@ -34,10 +40,10 @@ export function Skills() {
                 icon="embed2"
               />
             </div>
-            {frontednList.map((listItem, index) => {
+            {frontendList.length && frontendList.map((listItem, index) => {
               return (
                 <div
-                  key={listItem.index}
+                  key={index}
                   className="container__skills-list-item-box"
                 >
                   <IcomoonReact
@@ -62,10 +68,10 @@ export function Skills() {
                 icon="database"
               />
             </div>
-            {backendList.map((listItem) => {
+            {backendList.length && backendList.map((listItem, index) => {
               return (
                 <div
-                  key={listItem.index}
+                  key={index}
                   className="container__skills-list-item-box"
                 >
                   <IcomoonReact
@@ -90,10 +96,10 @@ export function Skills() {
                 icon="stack"
               />
             </div>
-            {othersList.map((listItem, index) => {
+            {othersList.length && othersList.map((listItem, index) => {
               return (
                 <div
-                  key={listItem.index}
+                  key={index}
                   className="container__skills-list-item-box"
                 >
                   <IcomoonReact

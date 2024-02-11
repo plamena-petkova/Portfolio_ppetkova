@@ -1,5 +1,5 @@
 import { Button } from "../Button/Button";
-import avatar from "../../assets/profile-avatar.png";
+//import avatar from "../../assets/profile-avatar.png";
 import CV from "../../assets/CV_Plamena_Petkova.pdf";
 import "./Header.scss";
 import { ButtonDownload } from "../Button/ButtonDownload";
@@ -16,7 +16,7 @@ export function Header() {
           About <span className="container__header--italic">Me</span>
         </h2>
         <p className="container__header--text">
-          {developer.about}
+          {developer?.about}
       
         </p>
         <div className="container__header--btn">
@@ -32,7 +32,7 @@ export function Header() {
 
       <div className="container__image">
         <img
-          src={avatar}
+          src={developer?.avatar}
           alt="profile-avatar"
           className="container__image-profile"
         />

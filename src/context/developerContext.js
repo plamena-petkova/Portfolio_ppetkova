@@ -12,14 +12,14 @@ export const DeveloperProvider = ({ children }) => {
     const [timeline, setTimeline] = useState([]);
     const [projects, setProjects] = useState([]);
     const [skills, setSkills] = useState({});
-    const [certificates, setCertificates] = useState();
+    const [certificates, setCertificates] = useState({});
 
     useEffect(() => {
       setDeveloper(JSON.parse(sessionStorage.getItem("devResume")));
       setTimeline(JSON.parse(sessionStorage.getItem("devTimeline")));
       setProjects(JSON.parse(sessionStorage.getItem("devProjects")));
       setSkills(JSON.parse(sessionStorage.getItem("devSkills")));
-      setCertificates(JSON.parse(sessionStorage.getItem("devProjects")));
+      setCertificates(JSON.parse(sessionStorage.getItem("devCertificates")));
     }, []);
 
 
