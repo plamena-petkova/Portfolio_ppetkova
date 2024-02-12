@@ -16,56 +16,62 @@ import { useDeveloperContext } from "../../context/developerContext";
 import { useEffect, useState } from "react";
 
 export function Certificates() {
-
   const { certificates } = useDeveloperContext();
 
   const [certificatesArray, setCertificatesArray] = useState([]);
-  const [certificatesLinks, setCertificatesLinks]= useState([]);
+  const [certificatesLinks, setCertificatesLinks] = useState([]);
   const [certificatesBenefits, setCertificatesBenefits] = useState([]);
-  
+  const [certificatesAbout, setCertificatesAbout] = useState("");
 
   useEffect(() => {
-    if(certificates && certificates.certificates) {
+    if (certificates && certificates.certificates) {
       setCertificatesArray(certificates?.certificates[0]);
-      if(certificatesArray && certificatesArray.certificates) {
-        //setCertificatesLinks(certificatesArray?.certificates[0]?.split(', '))
+      if (certificatesArray && certificatesArray.certificates) {
         setCertificatesLinks(certificatesArray.certificates);
-        setCertificatesBenefits(certificates.certificates[0].bestPractices)
-        console.log('Certificates', certificates.certificates[0].bestPractices);
+        setCertificatesBenefits(certificates.certificates[0].bestPractices);
+        setCertificatesAbout(certificates?.certificates[0].about);
       }
-      
     }
-  }, [certificates, certificatesArray])
+  }, [certificates, certificatesArray]);
 
+  const iconsBenefits = ["book", "pencil2", "cogs", "terminal", "safari", "keyboard"]
 
   return (
     <section id="certificates" className="container__certificates">
-      <h1 className="container__certificates-heading-text"><span className="container__certificates-heading-text-italic">My</span> Certificates</h1>
+      <h1 className="container__certificates-heading-text">
+        <span className="container__certificates-heading-text-italic">My</span>{" "}
+        Certificates
+      </h1>
       <div className="container__certificates-part">
         <Carousel width={"80%"} showThumbs={false} infiniteLoop={true}>
-        {certificatesLinks.map((link, index) => {
-          return <div key={index}>
-          <img src={link} alt="certificate 1" />
-        </div>
-        })}
+          {certificatesLinks.map((link, index) => {
+            return (
+              <div key={index}>
+                <img src={link} alt="certificate 1" />
+              </div>
+            );
+          })}
         </Carousel>
         <div className="container__certificates-profits">
-          <p className="container__certificates-text-p">
-            {certificates?.certificates[0]?.about}
-          </p>
+          <p className="container__certificates-text-p">{certificatesAbout}</p>
 
           <div className="container__certificates-profits-icons">
-{certificatesBenefits.map((benefit, index) => {
-  return         <div key={index} className="container__certificates-profit-item">
-  <IcomoonReact
-    iconSet={iconSet}
-    color="#00db00"
-    size={20}
-    icon="book"
-  ></IcomoonReact>
-  <p>{benefit}</p>
-</div>
-})}
+            {certificatesBenefits.map((benefit, index) => {
+              return (
+                <div
+                  key={index}
+                  className="container__certificates-profit-item"
+                >
+                  <IcomoonReact
+                    iconSet={iconSet}
+                    color="#00db00"
+                    size={20}
+                    icon={iconsBenefits[index]}
+                  ></IcomoonReact>
+                  <p>{benefit}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

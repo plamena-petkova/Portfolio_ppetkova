@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useDeveloperContext } from "../../../context/developerContext";
 import { ProjectItem } from "../ProjectItem/ProjectItem";
 import "./ProjectView.scss";
@@ -6,7 +7,14 @@ export function ProjectView() {
 
   const {projects} = useDeveloperContext();
 
-  const projectsArray = projects.projects;
+  const [projectsArray, setProjectsArray] = useState([]);
+
+  useEffect(() => {
+    if(projects) {
+      setProjectsArray(projects.projects)
+    }
+  }, [projects])
+
 
   return (
     <section id="projects" className="container__projects">

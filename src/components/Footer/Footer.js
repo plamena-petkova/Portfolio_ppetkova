@@ -3,10 +3,19 @@ import "./Footer.scss";
 import { SocialIcon } from "react-social-icons";
 import { ContactForm } from "../ContactForm/ContactForm";
 import { useDeveloperContext } from "../../context/developerContext";
+import { useEffect, useState } from "react";
 
 export function Footer() {
 
-  const {developer} = useDeveloperContext();
+  const {developerInfo} = useDeveloperContext();
+
+  const [developer, setDeveloper] = useState({});
+
+useEffect(() => {
+  if(developerInfo) {
+    setDeveloper(developerInfo);
+  }
+}, [developerInfo])
 
   return (
     <footer id="footer" className="container__footer">

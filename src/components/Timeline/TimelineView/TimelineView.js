@@ -1,11 +1,18 @@
 import "../TimelineView/TimelineView.scss";
 import { TimelineItem } from "../TimelineItem/TimelineItem";
 import { useDeveloperContext } from "../../../context/developerContext";
+import { useEffect, useState } from "react";
 
 export function TimelineView() {
   const { timeline } = useDeveloperContext();
+  const [timelineArray, setTimelineArray] = useState([]);
+
+  useEffect(() => {
+    if(timeline) {
+      setTimelineArray( Object.values(timeline)[1])
+    }
+  }, [timeline])
   
-  const timelineArray = Object.values(timeline)[1];
 
   return (
     <>
