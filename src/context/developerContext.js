@@ -1,6 +1,7 @@
 import { createContext, useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { getCertificatesByUsername, getDeveloperByUsername, getProjectsByUsername, getSkillsByUsername, getTimelineByUsername } from "../services/developerService";
 
 
 
@@ -14,13 +15,16 @@ export const DeveloperProvider = ({ children }) => {
     const [skills, setSkills] = useState({});
     const [certificates, setCertificates] = useState({});
 
+    const username = 'pl.petkova'
+
     useEffect(() => {
-      setDeveloper(JSON.parse(sessionStorage.getItem("devResume")));
-      setTimeline(JSON.parse(sessionStorage.getItem("devTimeline")));
-      setProjects(JSON.parse(sessionStorage.getItem("devProjects")));
-      setSkills(JSON.parse(sessionStorage.getItem("devSkills")));
-      setCertificates(JSON.parse(sessionStorage.getItem("devCertificates")));
+      getDeveloperByUsername(username).then(result => setDeveloper(result));
+      getTimelineByUsername(username).then(result => setTimeline(result));;
+      getProjectsByUsername(username).then(result => setProjects(result));;
+      getSkillsByUsername(username).then(result => setSkills(result));;
+      getCertificatesByUsername(username).then(result => setCertificates(result));;
     }, []);
+  
 
 
     return (

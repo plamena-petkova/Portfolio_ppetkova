@@ -8,15 +8,9 @@ export const getDeveloperByUsername = async (username) => {
   const developers = await response.json();
 
   const dev = developers.user;
-  dev.forEach((dev) => {
-    if (dev.username === username) {
-      try {
-        sessionStorage.setItem("devResume", JSON.stringify(dev));
-      } catch (e) {
-        console.error(e);
-      }
-    }
-  });
+  return dev.find((developer) => 
+   developer.username === username
+  );
 };
 
 export const getTimelineByUsername = async (username) => {
@@ -25,11 +19,7 @@ export const getTimelineByUsername = async (username) => {
   );
   const timeline = await response.json();
 
-  try {
-    sessionStorage.setItem("devTimeline", JSON.stringify(timeline));
-  } catch (e) {
-    console.error(e);
-  }
+ return timeline;
 } 
 
 export const getProjectsByUsername = async (username) => {
@@ -38,11 +28,7 @@ export const getProjectsByUsername = async (username) => {
   );
   const projects = await response.json();
 
-  try {
-    sessionStorage.setItem("devProjects", JSON.stringify(projects));
-  } catch (e) {
-    console.error(e);
-  }
+ return projects;
 }
 
 
@@ -52,11 +38,7 @@ export const getSkillsByUsername = async (username) => {
   );
   const skills = await response.json();
 
-  try {
-    sessionStorage.setItem("devSkills", JSON.stringify(skills));
-  } catch (e) {
-    console.error(e);
-  }
+  return skills;
 }
 
 export const getCertificatesByUsername = async (username) => {
@@ -65,9 +47,5 @@ export const getCertificatesByUsername = async (username) => {
   );
   const certificates = await response.json();
 
-  try {
-    sessionStorage.setItem("devCertificates", JSON.stringify(certificates));
-  } catch (e) {
-    console.error(e);
-  }
+ return certificates;
 }
