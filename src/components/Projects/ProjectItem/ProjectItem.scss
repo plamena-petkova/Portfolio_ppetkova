@@ -6,6 +6,9 @@
   grid-gap:4rem;
   margin: 2rem;
   padding: 2rem;
+  border: 2px solid var(--color-dark-green);
+  border-radius: 4rem;
+  box-shadow: $shadow;
 
   &--heading {
     font-size: 4rem;
@@ -15,19 +18,23 @@
 
   &--picture {
     width: 38vw;
-    height: 50vh;
+    height: 80vh;
     align-self: center;
+
+    @media only screen and (max-width: 590px) {
+      width: 70vw;
+  }
+
 
 
     &-img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       cursor: pointer;
       transition: all 0.2s;
       transform: scale(1);
       border-radius: 4rem;
-  
 
       &:hover {
         transform: scale(1.2);
