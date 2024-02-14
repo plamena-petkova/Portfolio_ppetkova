@@ -38,5 +38,9 @@ export const DeveloperProvider = ({ children }) => {
 export const    useDeveloperContext = () => {
     const developerState = useContext(DeveloperContext);
 
+    if(!developerState) {
+        throw new Error('No Developer state');
+    }
+
     return developerState;
 }

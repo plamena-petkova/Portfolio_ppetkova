@@ -2,34 +2,27 @@ import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "../Footer/Footer.scss";
 import { ButtonSend } from "../Button/ButtonSend";
+//import { types, useNotificationContext } from "../../context/notificationContext";
 
 export function ContactForm() {
-  const [formValues, setFormValues] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+
+//const { addNotification } = useNotificationContext();
+
+ const [name, setName] = useState('');
+ const [email, setEmail] = useState('');
+ const [message, setMessage] = useState('');
 
   const form = useRef();
 
-  const formValuesHandler = (event) => {
-    setFormValues(event.target.value);
-  };
 
   const resetValues = () => {
-    setFormValues({ name: "", email: "", message: "" });
+    setEmail('');
+    setName('');
+    setMessage('');
   };
 
   const sendEmail = (e) => {
     e.preventDefault();
-
-    if(formValues.email === '' && formValues.name === '' && formValues.message === '') {
-      return;
-    } else {
-      resetValues();
-    }
-
-
 
     emailjs
       .sendForm(
@@ -41,12 +34,15 @@ export function ContactForm() {
       .then(
         (result) => {
           console.log(result.text);
+          //addNotification('Message sent!', types.success);
         },
         (error) => {
           console.log(error.text);
         }
       );
   };
+
+
 
   return (
     <form
@@ -62,16 +58,16 @@ export function ContactForm() {
           placeholder="Name"
           className="container__footer--contact-form-name"
           name="user_name"
-          value={formValues?.name}
-          onChange={formValuesHandler}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <input
           type="email"
           placeholder="Email"
           className="container__footer--contact-form-email"
           name="user_email"
-          value={formValues?.email}
-          onChange={formValuesHandler}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
 
@@ -81,8 +77,8 @@ export function ContactForm() {
           placeholder="Message..."
           className="container__footer--contact-form-msg"
           name="message"
-          value={formValues?.message}
-          onChange={formValuesHandler}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
         />
       </div>
       <ButtonSend
