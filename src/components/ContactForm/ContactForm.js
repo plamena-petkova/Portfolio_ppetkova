@@ -2,28 +2,31 @@ import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "../Footer/Footer.scss";
 import { ButtonSend } from "../Button/ButtonSend";
-//import { types, useNotificationContext } from "../../context/notificationContext";
+import {
+  types,
+  useNotificationContext,
+} from "../../context/notificationContext";
 
 export function ContactForm() {
+  const { addNotification } = useNotificationContext();
 
-//const { addNotification } = useNotificationContext();
-
- const [name, setName] = useState('');
- const [email, setEmail] = useState('');
- const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState(null);
 
   const form = useRef();
 
-
   const resetValues = () => {
-    setEmail('');
-    setName('');
-    setMessage('');
+    setEmail("");
+    setName("");
+    setMessage("");
   };
 
   const sendEmail = (e) => {
     e.preventDefault();
 
+    
     emailjs
       .sendForm(
         process.env.REACT_APP_EMAILJS_ID,
@@ -34,15 +37,31 @@ export function ContactForm() {
       .then(
         (result) => {
           console.log(result.text);
-          //addNotification('Message sent!', types.success);
+          addNotification('Message sent!', types.success);
         },
         (error) => {
           console.log(error.text);
         }
       );
+
   };
 
+  function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
 
+  const handleChangeEmail = (event) => {
+    console.log("Event", event.target.value);
+
+    if (!isValidEmail(event.target.value)) {
+      setError("Email is invalid");
+      addNotification("Type valid email address", types.error);
+    } else {
+      setError(null);
+    }
+
+    setEmail(event.target.value);
+  };
 
   return (
     <form
@@ -67,7 +86,7 @@ export function ContactForm() {
           className="container__footer--contact-form-email"
           name="user_email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleChangeEmail}
         />
       </div>
 
@@ -85,6 +104,7 @@ export function ContactForm() {
         btnClicked={resetValues}
         caption={"Send"}
         buttonClass={"btn btn--footer"}
+        disable={email === "" || name === "" || message === ""}
       />
     </form>
   );

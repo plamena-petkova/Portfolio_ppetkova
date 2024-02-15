@@ -69,6 +69,11 @@
       background-color: var(--color-lime-green);
       color: var(--color-black);
     }
+
+    &:disabled {
+      background-color: transparent;
+      color: var(--color-default);
+    }
   }
 }
 

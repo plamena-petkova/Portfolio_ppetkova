@@ -12,14 +12,14 @@ export const types = {
     success: 'Success'
 }
 
-const initialNotificationState = { show: false, message: '', types: types.error };
+const initialNotificationState = { show: false, message: '', types: types.success };
 
 export const NotificationProvider = ({children}) => {
 
     const [notification, setNotification] = useState(initialNotificationState);
 
 
-    const addNotification = useCallback((message, type = types.error) => {
+    const addNotification = useCallback((message, type = types.success) => {
         setNotification({show: true, message, type})
 
         setTimeout(() => {
@@ -27,11 +27,10 @@ export const NotificationProvider = ({children}) => {
         }, 3000)
     }, []);
 
-    const hideNotification = useCallback(() => setNotification(initialNotificationState), [])
 
 
     return (
-        <NotificationContext.Provider value={{notification, addNotification, hideNotification}}>
+        <NotificationContext.Provider value={{notification, addNotification}}>
             {children}
         </NotificationContext.Provider>
     )

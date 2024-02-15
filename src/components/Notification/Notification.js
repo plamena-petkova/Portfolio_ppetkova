@@ -1,23 +1,76 @@
-import { Toast } from 'react-bootstrap';
-import { useNotificationContext } from '../../context/notificationContext';
+import { useNotificationContext } from "../../context/notificationContext";
+import Snackbar from "@mui/material/Snackbar";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+import { useEffect, useState } from "react";
+import { createTheme } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
 
-
+const theme = createTheme({
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontSize: "1.6rem",
+        },
+      },
+    },
+    MuiSnackbarContent: {
+      styleOverrides: {
+        root: {
+          fontSize: "1.6rem",
+          backgroundColor: "white",
+          color: "#00b300",
+        },
+      },
+    },
+  },
+});
 
 const Notification = () => {
-    const { notification, hideNotification } = useNotificationContext();
+  const { notification } = useNotificationContext();
 
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
     if (!notification.show) {
-        return null;
+      setOpen(false);
+    } else {
+      setOpen(true);
+    }
+  }, [notification]);
+
+  const handleClose = (e) => {
+    if (e?.reason === "clickaway") {
+      return;
     }
 
-    return (
-        <Toast className="notification d-inline-block m-1" bg={notification.types} onClose={hideNotification}>
-            <Toast.Header>
-                <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-                <strong className="me-auto">{notification.message}</strong>
-            </Toast.Header>
-        </Toast>
-    );
+    setOpen(false);
+  };
+
+  const action = (
+    <>
+      <IconButton size="large" aria-label="close" onClick={handleClose}>
+        <CloseIcon fontSize="large" />
+      </IconButton>
+    </>
+  );
+
+  return (
+    <div>
+      <ThemeProvider theme={theme}>
+        <Snackbar
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+          message={notification.message}
+          open={open}
+          autoHideDuration={6000}
+          onClose={handleClose}
+          action={action}
+          
+        />
+      </ThemeProvider>
+    </div>
+  );
 };
 
 export default Notification;
