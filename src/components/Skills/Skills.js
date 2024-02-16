@@ -40,7 +40,7 @@ export function Skills() {
                 icon="embed2"
               />
             </div>
-            {frontendList.length && frontendList.map((listItem, index) => {
+            {frontendList?.length && frontendList.map((listItem, index) => {
               return (
                 <div
                   key={index}

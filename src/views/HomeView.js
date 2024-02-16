@@ -18,13 +18,14 @@ export function HomeView() {
   return (
     <>
       <div ref={aboutRef}>
-        {!aboutSectionIsVisible && <Navigation /> && (
+        {!aboutSectionIsVisible &&  (
           <Button
             caption={"Up"}
             btnClicked={scrollToTop}
             buttonClass={"btn btn--transparent btn--transparent-scroll"}
           />
         )}
+        <Navigation /> 
         <Header />
       </div>
       <TimelineView />

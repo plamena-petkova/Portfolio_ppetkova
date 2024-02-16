@@ -28,7 +28,7 @@ export function Certificates() {
       setCertificatesArray(certificates?.certificates[0]);
       if (certificatesArray && certificatesArray.certificates) {
         setCertificatesLinks(certificatesArray.certificates);
-        setCertificatesBenefits(certificates.certificates[0].bestPractices);
+        setCertificatesBenefits(certificates?.certificates[0].bestPractices);
         setCertificatesAbout(certificates?.certificates[0].about);
       }
     }

@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "../Footer/Footer.scss";
-import { ButtonSend } from "../Button/ButtonSend";
 import {
   types,
   useNotificationContext,
@@ -25,8 +24,8 @@ export function ContactForm() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
-    
+    resetValues();
+  
     emailjs
       .sendForm(
         process.env.REACT_APP_EMAILJS_ID,
@@ -37,13 +36,13 @@ export function ContactForm() {
       .then(
         (result) => {
           console.log(result.text);
-          addNotification('Message sent!', types.success);
+          addNotification("Message sent!", types.success);
+        
         },
         (error) => {
           console.log(error.text);
         }
       );
-
   };
 
   function isValidEmail(email) {
@@ -51,8 +50,6 @@ export function ContactForm() {
   }
 
   const handleChangeEmail = (event) => {
-    console.log("Event", event.target.value);
-
     if (!isValidEmail(event.target.value)) {
       setError("Email is invalid");
       addNotification("Type valid email address", types.error);
@@ -100,12 +97,13 @@ export function ContactForm() {
           onChange={(e) => setMessage(e.target.value)}
         />
       </div>
-      <ButtonSend
-        btnClicked={resetValues}
-        caption={"Send"}
-        buttonClass={"btn btn--footer"}
-        disable={email === "" || name === "" || message === ""}
-      />
+      <button
+        className="btn btn--footer"
+        type="submit"
+        disabled={email === "" || name === "" || message === ""}
+      >
+        Send
+      </button>
     </form>
   );
 }
