@@ -53,11 +53,6 @@ useEffect(() => {
               />
             </button>
           </label>
-          <label htmlFor="email">
-            <button className="btn__socials">
-              <SocialIcon bgColor="transparent" url={developerInfo.email} />
-            </button>
-          </label>
         </div>
       </div>
     </footer>
