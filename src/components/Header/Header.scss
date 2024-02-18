@@ -8,7 +8,7 @@
     flex-wrap: wrap;
     align-items: center;
     min-height: 40vh;
-    margin-bottom: $m-large;
+    margin-bottom: $m-small;
 
    
     &__image {
@@ -40,7 +40,7 @@
         align-items: center;
 
         &--heading {
-            margin: 3rem 0;
+            margin: 2rem 0;
         }
         
     }
@@ -48,7 +48,7 @@
     &__header--text {
         width: 60vw;
         font-size: 1.6rem;
-        margin-bottom: $m-large;
+        margin-bottom: $m-medium;
 
     }
 

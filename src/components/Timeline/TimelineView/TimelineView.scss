@@ -1,7 +1,6 @@
 @import "../../../styles/variables";
 
 .timeline {
-  margin: 8rem 0;
   display: flex;
   flex-direction: column;
 
@@ -11,7 +10,7 @@
     font-size: 5.5rem;
     font-weight: 200;
     color: var(--color-dark-green);
-    margin: 4rem 0;
+    margin: 2rem 0;
   }
 
   &__wrapper {
