@@ -14,21 +14,35 @@ export const DeveloperProvider = ({ children }) => {
     const [projects, setProjects] = useState([]);
     const [skills, setSkills] = useState({});
     const [certificates, setCertificates] = useState({});
+    const [loading, setLoading] = useState(true);
 
     const username = 'pl.petkova'
 
     useEffect(() => {
-      getDeveloperByUsername(username).then(result => setDeveloper(result));
-      getTimelineByUsername(username).then(result => setTimeline(result));;
-      getProjectsByUsername(username).then(result => setProjects(result));;
-      getSkillsByUsername(username).then(result => setSkills(result));;
-      getCertificatesByUsername(username).then(result => setCertificates(result));;
+      getDeveloperByUsername(username).then(result => {
+        setDeveloper(result);
+        setLoading(false);
+    });
+      getTimelineByUsername(username).then(result => {
+        setTimeline(result);
+        setLoading(false);
+      });;
+      getProjectsByUsername(username).then(result => {
+        setProjects(result);
+        setLoading(false);
+    });;
+      getSkillsByUsername(username).then(result => {
+        setSkills(result);
+        setLoading(false);
+    });;
+      getCertificatesByUsername(username).then(result => {
+        setCertificates(result);
+        setLoading(false);
+    });;
     }, []);
-  
-
 
     return (
-        <DeveloperContext.Provider value={{ developer, timeline, projects, skills, certificates }}>
+        <DeveloperContext.Provider value={{ developer, timeline, projects, skills, certificates, loading }}>
             {children}
         </DeveloperContext.Provider>
     );

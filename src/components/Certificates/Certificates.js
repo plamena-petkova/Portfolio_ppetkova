@@ -1,15 +1,6 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import "./Certificates.scss";
-/*
-import Angular from "../../assets/certificates/Angular.png";
-import ReactJs from "../../assets/certificates/ReactJs.png";
-import HTMLandCSS from "../../assets/certificates/HTMLandCss.png";
-import JSAdvanced from "../../assets/certificates/JSAdvanced.png";
-import JSApplications from "../../assets/certificates/JSApplications.png";
-import ProgrammingBasics from "../../assets/certificates/ProgrammingBasics.png";
-import SCSS from "../../assets/certificates/SCSS.png";
-*/
 import IcomoonReact from "icomoon-react";
 import iconSet from "../../assets/selection.json";
 import { useDeveloperContext } from "../../context/developerContext";

@@ -4,10 +4,20 @@ import CV from "../../assets/CV_Plamena_Petkova.pdf";
 import "./Header.scss";
 import { ButtonDownload } from "../Button/ButtonDownload";
 import { useDeveloperContext } from "../../context/developerContext";
+import { useEffect, useState } from "react";
+
 
 export function Header() {
 
   const {developer} = useDeveloperContext();
+
+  const [developerInfo, setDeveloperInfo] = useState({});
+
+  useEffect(() => {
+    if(developer) {
+      setDeveloperInfo(developer);
+    }
+  }, [developer])
 
   return (
     <section className="container">
@@ -16,7 +26,7 @@ export function Header() {
           About <span className="container__header--italic">Me</span>
         </h2>
         <p className="container__header--text">
-          {developer?.about}
+          {developerInfo.about}
       
         </p>
         <div className="container__header--btn">
@@ -32,7 +42,7 @@ export function Header() {
 
       <div className="container__image">
         <img
-          src={developer?.avatar}
+          src={developerInfo.avatar}
           alt="profile-avatar"
           className="container__image-profile"
         />

@@ -7,8 +7,13 @@ import { Navigation } from "../components/Navigation/Navigation";
 import { ProjectView } from "../components/Projects/ProjectView/ProjectView";
 import { Skills } from "../components/Skills/Skills";
 import { TimelineView } from "../components/Timeline/TimelineView/TimelineView";
+import CircularProgress from "@mui/material/CircularProgress";
+import { useDeveloperContext } from "../context/developerContext";
+import { Box } from "@mui/material";
 
 export function HomeView() {
+  const { loading } = useDeveloperContext();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
@@ -18,16 +23,21 @@ export function HomeView() {
   return (
     <>
       <div ref={aboutRef}>
-        {!aboutSectionIsVisible &&  (
+        {!aboutSectionIsVisible && (
           <Button
             caption={"Up"}
             btnClicked={scrollToTop}
             buttonClass={"btn btn--transparent btn--transparent-scroll"}
           />
         )}
-        <Navigation /> 
+        <Navigation />
         <Header />
       </div>
+      {loading && (
+        <Box sx={{ display: "flex", justifyContent:'center' }}>
+          <CircularProgress />
+        </Box>
+      )}
       <TimelineView />
       <ProjectView />
       <Skills />
