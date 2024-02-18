@@ -7,15 +7,15 @@ import { useEffect, useState } from "react";
 
 export function Footer() {
 
-  const {developerInfo} = useDeveloperContext();
+  const {developer} = useDeveloperContext();
 
-  const [developer, setDeveloper] = useState({});
+  const [developerInfo, setDeveloperInfo] = useState({});
 
 useEffect(() => {
-  if(developerInfo) {
-    setDeveloper(developerInfo);
+  if(developer) {
+    setDeveloperInfo(developer);
   }
-}, [developerInfo])
+}, [developer])
 
   return (
     <footer id="footer" className="container__footer">
@@ -40,7 +40,7 @@ useEffect(() => {
               <SocialIcon
                 bgColor="transparent"
                 url="https://linkedin.com"
-                href={developer.linkedin}
+                href={developerInfo.linkedin}
               />
             </button>
           </label>
@@ -49,13 +49,13 @@ useEffect(() => {
               <SocialIcon
                 bgColor="transparent"
                 url="https://github.com"
-                href={developer.github}
+                href={developerInfo.github}
               />
             </button>
           </label>
           <label htmlFor="email">
             <button className="btn__socials">
-              <SocialIcon bgColor="transparent" url={developer.email} />
+              <SocialIcon bgColor="transparent" url={developerInfo.email} />
             </button>
           </label>
         </div>
