@@ -39,10 +39,14 @@
     }
 
     &-scroll {
-      background-image: url('https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145768_1280.png');
       position: fixed;
       top: 85vh;
       left: 90vw;
+
+      @media only screen and (max-width: 600px) {
+        top: 85vh;
+        left: 75vw;
+      }
     }
   }
 
