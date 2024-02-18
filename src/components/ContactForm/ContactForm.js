@@ -56,7 +56,10 @@ export function ContactForm() {
     } else {
       setError(null);
     }
-
+    if(error) {
+      console.log('Error', error)
+    }
+    
     setEmail(event.target.value);
   };
 
