@@ -30,18 +30,3 @@ export function ProjectItem({project}) {
     </article>
   );
 }
-
-/*
-         <Chip techName={'React'} />
-          <Chip techName={'Material UI'} />
-          <Chip techName={'Socket.IO'} />
-          <Chip techName={'Node.js/Express'} />
-          <Chip techName={'MongoDB Atlas'} />
-          <Chip techName={'Mongoose'} />
-          <Chip techName={'React Redux'} />
-          <Chip techName={'Emoji Picker React'} />
-          <Chip techName={'React Router Dom'} />
-          <Chip techName={'Uuid'} />
-          <Chip techName={'Axios'} />
-
-  */
