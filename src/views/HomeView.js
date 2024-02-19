@@ -12,6 +12,7 @@ import { useDeveloperContext } from "../context/developerContext";
 import { Box } from "@mui/material";
 
 export function HomeView() {
+
   const { loading } = useDeveloperContext();
 
   const scrollToTop = () => {
@@ -34,7 +35,7 @@ export function HomeView() {
         <Header />
       </div>
       {loading && (
-        <Box sx={{ display: "flex", justifyContent:'center' }}>
+        <Box sx={{  width:'100vw', height:'100vh', overflow:'auto', top:0,  position:'fixed', backdropFilter:'blur(1rem)', display: "flex", justifyContent:'center', alignItems:'center' }}>
           <CircularProgress />
         </Box>
       )}
@@ -43,6 +44,6 @@ export function HomeView() {
       <Skills />
       <Certificates />
       <Footer />
-    </>
+      </>
   );
 }

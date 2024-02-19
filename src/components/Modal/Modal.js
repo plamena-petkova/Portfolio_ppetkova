@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import iconSet from "../../assets/selection.json";
 import IcomoonReact from "icomoon-react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useDeveloperContext } from "../../context/developerContext";
 
 export function Modal({ setOpenModal }) {
 
-  const valueToCopy = "pl.petkova@gmail.com";
+  const {developer} = useDeveloperContext();
 
   return (
     <div className="modal__background">
@@ -27,7 +28,7 @@ export function Modal({ setOpenModal }) {
             <span className="modal__background--container-title-span">Me</span>
           </h1>
           <h3 className="modal__background--container-title-name">
-            Plamena Petkova
+            {developer?.names}
           </h3>
         </div>
         <div className="modal__background--container-body">
@@ -41,7 +42,7 @@ export function Modal({ setOpenModal }) {
                   icon="location"
                 />
               </button>
-              Varna, Bulgaria
+              {developer?.address}
             </div>
             <div className="modal__background--container-body-left-email">
               {" "}
@@ -55,8 +56,8 @@ export function Modal({ setOpenModal }) {
                   icon="mail"
                 />
               </button>
-              pl.petkova@gmail.com
-              <CopyToClipboard text={valueToCopy}>
+              {developer?.email}
+              <CopyToClipboard text={developer.email}>
                 <button className="modal__btn">
                   <IcomoonReact
                     iconSet={iconSet}
@@ -71,7 +72,7 @@ export function Modal({ setOpenModal }) {
           <div className="modal__background--container-body-right">
             <div className="modal__background--container-body-right-linkedin">
               {" "}
-              <Link to="https://github.com/plamena-petkova">
+              <Link to={developer?.github}>
               <button className="modal__btn">
               <IcomoonReact
                     iconSet={iconSet}
@@ -84,7 +85,7 @@ export function Modal({ setOpenModal }) {
               Github
             </div>
             <div className="modal__background--container-body-right-github">
-            <Link to="https://www.linkedin.com/in/plamena-petkova-a1280163/">
+            <Link to={developer?.linkedin}>
               <button className="modal__btn">
               <IcomoonReact
                     iconSet={iconSet}

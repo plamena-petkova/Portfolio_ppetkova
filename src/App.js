@@ -6,8 +6,7 @@ import { NotificationProvider } from "./context/notificationContext";
 import Notification from "./components/Notification/Notification";
 
 const App = () => {
-
-
+  
   return (
     <BrowserRouter basename="/">
       <NotificationProvider>
