@@ -2,7 +2,6 @@ import { createContext, useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { getCertificatesByUsername, getDeveloperByUsername, getProjectsByUsername, getSkillsByUsername, getTimelineByUsername } from "../services/developerService";
-import { useParams } from "react-router-dom";
 
 
 
