@@ -19,8 +19,8 @@ export function Certificates() {
       setCertificatesArray(certificates?.certificates[0]);
       if (certificatesArray && certificatesArray.certificates) {
         setCertificatesLinks(certificatesArray.certificates);
-        setCertificatesBenefits(certificates?.certificates[0].bestPractices);
-        setCertificatesAbout(certificates?.certificates[0].about);
+        setCertificatesBenefits(certificates?.certificates[0]?.bestPractices);
+        setCertificatesAbout(certificates?.certificates[0]?.about);
       }
     }
   }, [certificates, certificatesArray]);
@@ -47,7 +47,7 @@ export function Certificates() {
           <p className="container__certificates-text-p">{certificatesAbout}</p>
 
           <div className="container__certificates-profits-icons">
-            {certificatesBenefits.map((benefit, index) => {
+            {certificatesBenefits?.length && certificatesBenefits.map((benefit, index) => {
               return (
                 <div
                   key={index}

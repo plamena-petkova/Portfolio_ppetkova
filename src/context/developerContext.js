@@ -9,14 +9,13 @@ export const DeveloperContext = createContext();
 
 export const DeveloperProvider = ({ children }) => {
 
+    const [username, setUsername] = useState('pl.petkova');
     const [developer, setDeveloper] = useState({});
     const [timeline, setTimeline] = useState([]);
     const [projects, setProjects] = useState([]);
     const [skills, setSkills] = useState({});
     const [certificates, setCertificates] = useState({});
     const [loading, setLoading] = useState(true);
-
-    const username = 'pl.petkova'
 
     useEffect(() => {
       if(username) {
@@ -42,10 +41,10 @@ export const DeveloperProvider = ({ children }) => {
       });
       }
 
-    }, []);
+    }, [username]);
 
     return (
-        <DeveloperContext.Provider value={{ developer, timeline, projects, skills, certificates, loading }}>
+        <DeveloperContext.Provider value={{ developer, timeline, projects, skills, certificates, loading, username, setUsername }}>
             {children}
         </DeveloperContext.Provider>
     );

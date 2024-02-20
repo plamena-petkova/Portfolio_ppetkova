@@ -10,10 +10,22 @@ import { TimelineView } from "../components/Timeline/TimelineView/TimelineView";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useDeveloperContext } from "../context/developerContext";
 import { Box } from "@mui/material";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 export function HomeView() {
 
-  const { loading } = useDeveloperContext();
+  const { loading, username: user, setUsername } = useDeveloperContext();
+
+  const {username} = useParams()
+
+  useEffect(() => {
+    if(user !== username) {
+      setUsername(username);
+    }
+  }, [username, setUsername, user]);
+
+
 
 
   const scrollToTop = () => {

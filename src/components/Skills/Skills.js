@@ -14,9 +14,9 @@ export function Skills() {
 
   useEffect(() => {
     if(skills && skills.skills) {
-      setFrontendList(skills?.skills[0]?.frontend[0].split(', '));
-      setBackendList(skills?.skills[0]?.backend[0].split(', '));
-      setOthersList(skills?.skills[0]?.others[0].split(', '));
+      setFrontendList(skills?.skills[0]?.frontend[0]?.split(', '));
+      setBackendList(skills?.skills[0]?.backend[0]?.split(', '));
+      setOthersList(skills?.skills[0]?.others[0]?.split(', '));
     }
   }, [skills])
 
@@ -68,7 +68,7 @@ export function Skills() {
                 icon="database"
               />
             </div>
-            {backendList.length && backendList.map((listItem, index) => {
+            {backendList?.length && backendList.map((listItem, index) => {
               return (
                 <div
                   key={index}
@@ -96,7 +96,7 @@ export function Skills() {
                 icon="stack"
               />
             </div>
-            {othersList.length && othersList.map((listItem, index) => {
+            {othersList?.length && othersList.map((listItem, index) => {
               return (
                 <div
                   key={index}

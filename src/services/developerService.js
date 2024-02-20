@@ -1,6 +1,15 @@
 import {certificatesRoute, developerRoute, projectsRoute, skillsRoute, timelineRoute} from "../utils/routes"
 
 
+export const getAllDevelopers = async () => {
+  const response = await fetch(
+    `${developerRoute}`
+  );
+  const allDevelopers = await response.json();
+
+ return allDevelopers.users;
+}
+
 export const getDeveloperByUsername = async (username) => {
   const response = await fetch(
     `${developerRoute}/${username}`
@@ -49,3 +58,5 @@ export const getCertificatesByUsername = async (username) => {
 
  return certificates;
 }
+
+
