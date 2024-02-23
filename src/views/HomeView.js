@@ -10,23 +10,26 @@ import { TimelineView } from "../components/Timeline/TimelineView/TimelineView";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useDeveloperContext } from "../context/developerContext";
 import { Box } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 export function HomeView() {
+  const navigate = useNavigate();
 
-  const { loading, username: user, setUsername } = useDeveloperContext();
+  const {
+    loading,
+    username: user,
+    setUsername,
+    allUsers,
+  } = useDeveloperContext();
 
-  const {username} = useParams()
+  const { username } = useParams();
 
   useEffect(() => {
-    if(user !== username) {
+    if (user !== username) {
       setUsername(username);
     }
-  }, [username, setUsername, user]);
-
-
-
+  }, [user, username, setUsername, allUsers, navigate]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -48,7 +51,19 @@ export function HomeView() {
         <Header />
       </div>
       {loading && (
-        <Box sx={{  width:'100vw', height:'100vh', overflow:'auto', top:0,  position:'fixed', backdropFilter:'blur(1rem)', display: "flex", justifyContent:'center', alignItems:'center' }}>
+        <Box
+          sx={{
+            width: "100vw",
+            height: "100vh",
+            overflow: "auto",
+            top: 0,
+            position: "fixed",
+            backdropFilter: "blur(1rem)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <CircularProgress />
         </Box>
       )}
@@ -57,6 +72,6 @@ export function HomeView() {
       <Skills />
       <Certificates />
       <Footer />
-      </>
+    </>
   );
 }

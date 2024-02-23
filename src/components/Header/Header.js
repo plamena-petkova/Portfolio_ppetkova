@@ -1,5 +1,4 @@
 import { Button } from "../Button/Button";
-//import avatar from "../../assets/profile-avatar.png";
 import CV from "../../assets/CV_Plamena_Petkova.pdf";
 import "./Header.scss";
 import { ButtonDownload } from "../Button/ButtonDownload";

@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { getCertificatesByUsername, getDeveloperByUsername, getProjectsByUsername, getSkillsByUsername, getTimelineByUsername } from "../services/developerService";
+import { getAllDevelopers, getCertificatesByUsername, getDeveloperByUsername, getProjectsByUsername, getSkillsByUsername, getTimelineByUsername } from "../services/developerService";
 
 
 
@@ -9,7 +9,8 @@ export const DeveloperContext = createContext();
 
 export const DeveloperProvider = ({ children }) => {
 
-    const [username, setUsername] = useState('pl.petkova');
+    const [allUsers, setAllUsers] = useState([]);
+    const [username, setUsername] = useState('');
     const [developer, setDeveloper] = useState({});
     const [timeline, setTimeline] = useState([]);
     const [projects, setProjects] = useState([]);
@@ -18,6 +19,10 @@ export const DeveloperProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+      getAllDevelopers().then(result => {
+        setAllUsers(result);
+        setLoading(false);
+    });
       if(username) {
         getDeveloperByUsername(username).then(result => {
           setDeveloper(result);
@@ -44,7 +49,7 @@ export const DeveloperProvider = ({ children }) => {
     }, [username]);
 
     return (
-        <DeveloperContext.Provider value={{ developer, timeline, projects, skills, certificates, loading, username, setUsername }}>
+        <DeveloperContext.Provider value={{ developer, timeline, projects, skills, certificates, loading, username, setUsername, allUsers }}>
             {children}
         </DeveloperContext.Provider>
     );
