@@ -9,8 +9,8 @@ export const DeveloperContext = createContext();
 
 export const DeveloperProvider = ({ children }) => {
 
-    const [allUsers, setAllUsers] = useState([]);
-    const [username, setUsername] = useState('');
+    //const [allUsers, setAllUsers] = useState([]);
+    const [username, setUsername] = useState('pl.petkova');
     const [developer, setDeveloper] = useState({});
     const [timeline, setTimeline] = useState([]);
     const [projects, setProjects] = useState([]);
@@ -19,10 +19,6 @@ export const DeveloperProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-      getAllDevelopers().then(result => {
-        setAllUsers(result);
-        setLoading(false);
-    });
       if(username) {
         getDeveloperByUsername(username).then(result => {
           setDeveloper(result);
@@ -49,7 +45,7 @@ export const DeveloperProvider = ({ children }) => {
     }, [username]);
 
     return (
-        <DeveloperContext.Provider value={{ developer, timeline, projects, skills, certificates, loading, username, setUsername, allUsers }}>
+        <DeveloperContext.Provider value={{ developer, timeline, projects, skills, certificates, loading, username, setUsername}}>
             {children}
         </DeveloperContext.Provider>
     );
