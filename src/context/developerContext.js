@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { getAllDevelopers, getCertificatesByUsername, getDeveloperByUsername, getProjectsByUsername, getSkillsByUsername, getTimelineByUsername } from "../services/developerService";
+import { getCertificatesByUsername, getDeveloperByUsername, getProjectsByUsername, getSkillsByUsername, getTimelineByUsername } from "../services/developerService";
 
 
 

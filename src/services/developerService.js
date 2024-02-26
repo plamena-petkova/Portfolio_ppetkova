@@ -10,6 +10,7 @@ export const getAllDevelopers = async () => {
  return allDevelopers.users;
 }
 
+
 export const getDeveloperByUsername = async (username) => {
   const response = await fetch(
     `${developerRoute}/${username}`
