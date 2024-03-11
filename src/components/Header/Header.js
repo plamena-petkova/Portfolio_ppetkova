@@ -1,5 +1,5 @@
 import { Button } from "../Button/Button";
-import CV from "../../assets/CV_Plamena_Petkova.pdf";
+import CV from "../../assets/Plamena_Petkova_Resume.pdf";
 import "./Header.scss";
 import { ButtonDownload } from "../Button/ButtonDownload";
 import { useDeveloperContext } from "../../context/developerContext";
