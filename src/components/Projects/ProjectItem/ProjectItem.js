@@ -23,8 +23,8 @@ export function ProjectItem({project}) {
           {project.about}
         </p>
         <div className="project__card-btns">
-        <Button hrefLink={project.liveDemo} caption={"Live Demo"} buttonClass={"btn btn--project"} />
-        <Button hrefLink={project.gitRepo} caption={'Github Repo'} buttonClass={"btn btn--project"} />
+        <Button hrefLink={project.liveDemo} caption={"Live Demo"} buttonClass={"btn btn--project"} newTab={true} />
+        <Button hrefLink={project.gitRepo} caption={'Github Repo'} buttonClass={"btn btn--project"} newTab={true}/>
         </div>
       </div>
     </article>

@@ -6,10 +6,11 @@ export function Button({
   buttonClass,
   btnClicked,
   hrefLink,
+  newTab
 }) {
 
   return (
-    <HashLink className="link" to={hrefLink}>
+    <HashLink className="link" to={hrefLink} target={newTab ? "_blank" : null}>
       <button onClick={btnClicked} className={buttonClass}>
         {caption}
       </button>
