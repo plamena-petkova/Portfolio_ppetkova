@@ -5,7 +5,6 @@
   flex-direction: column;
   align-items: center;
   width: 25vw;
-
   background: var(--color-default);
   border-radius: 12px;
   box-shadow: $shadow;
@@ -69,4 +68,18 @@
   align-items: center;
   margin-top: 3rem;
   cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .project__card {
+    width: 30vw;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .project__card {
+    width: 85vw;
+  }
+
 }

@@ -1,12 +1,6 @@
 @import "../../../styles/variables";
 
 .container__projects {
-  // display: grid;
-  // grid-template-rows: 1fr repeat(auto-fit, minmax(30rem, 1fr));
-
-  // margin: $m-large;
-  // grid-gap: 4rem;
-
   &-heading {
     text-align: center;
     font-size: 3.5rem;
@@ -27,14 +21,11 @@
     padding: 2rem 3rem;
 
     @media (max-width: 1024px) {
-      grid-template-columns: repeat(
-        auto-fit,
-        minmax(400px, 1fr)
-      ); // Adjusts dynamically for medium screens
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     }
 
     @media (max-width: 768px) {
-      grid-template-columns: 1fr; // Switches to 1 item per row on smaller screens
+      grid-template-columns:repeat(1, 1fr);
     }
   }
 }
