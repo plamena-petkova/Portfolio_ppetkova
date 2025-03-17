@@ -30,9 +30,9 @@
 }
 
 .project__card--text {
-  padding: 1rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   text-align: start;
   font-size: 1.6rem;
   padding: 1rem 3rem;
@@ -69,6 +69,51 @@
   margin-top: 3rem;
   cursor: pointer;
 }
+
+
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  border: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: $m-small $m-medium;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border-radius: 4rem;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.2s;
+  text-decoration: none;
+ 
+
+
+
+ &--project {
+    background-color: var(--color-default);;
+    color: var(--color-black);
+    border: 0.2px solid var(--color-dark-green);
+    padding: 1rem 1.5rem;
+    font-size: 1.3rem;
+    margin: $m-small;
+    text-decoration: none;
+
+
+    &:hover {
+      background-color: var(--color-lime-green);
+      color: var(--color-black);
+    }
+  
+  }
+
+
+}
+
+.link {
+  text-decoration: none;
+}
+
 
 @media (max-width: 1024px) {
   .project__card {
