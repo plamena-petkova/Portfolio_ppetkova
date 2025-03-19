@@ -41,6 +41,16 @@ export const getProjectsByUsername = async (username) => {
  return projects;
 }
 
+// export const getProjectById = async (id) => {
+//   const response = await fetch(
+//     `${projectsRoute}/${id}`
+//   );
+//   const project = await response.json();
+
+//  return project;
+// }
+
+
 
 export const getSkillsByUsername = async (username) => {
   const response = await fetch(

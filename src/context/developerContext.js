@@ -15,9 +15,8 @@ export const DeveloperProvider = ({ children }) => {
 
   useEffect(() => {
     if (username) {
-      setLoading(true); // Set loading to true when the API calls begin
+      setLoading(true); 
 
-      // Wait for all API calls to finish
       Promise.all([
         getDeveloperByUsername(username),
         getTimelineByUsername(username),
@@ -26,7 +25,7 @@ export const DeveloperProvider = ({ children }) => {
         getCertificatesByUsername(username),
       ])
         .then(([developerResult, timelineResult, projectsResult, skillsResult, certificatesResult]) => {
-          // Set state with all the fetched data
+
           setDeveloper(developerResult);
           setTimeline(timelineResult);
           setProjects(projectsResult);
@@ -34,7 +33,7 @@ export const DeveloperProvider = ({ children }) => {
           setCertificates(certificatesResult);
         })
         .finally(() => {
-          // Set loading to false once all data is loaded
+
           setLoading(false);
         });
     }

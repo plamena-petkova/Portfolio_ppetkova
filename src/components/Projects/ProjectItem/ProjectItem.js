@@ -10,7 +10,7 @@ export function ProjectItem({ project }) {
   const navigate = useNavigate();
 
   const openDetailsPage = (id) => {
-    navigate(`project/${id}`);
+    navigate(`/project/${id}`);
   };
 
   return (
