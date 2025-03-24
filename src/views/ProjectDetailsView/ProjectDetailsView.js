@@ -6,6 +6,7 @@ import { useDeveloperContext } from "../../context/developerContext";
 import "./ProjectDetailsView.scss";
 import { Navigation } from "../../components/Navigation/Navigation";
 import { Footer } from "../../components/Footer/Footer";
+import { Box, CircularProgress } from "@mui/material";
 
 const ProjectDetailsView = () => {
   const { id } = useParams();
@@ -22,7 +23,23 @@ const ProjectDetailsView = () => {
   }, [projects, id]);
 
   if (!project) {
-    return <p>Loading project details...</p>;
+    return (
+      <Box
+        sx={{
+          width: "100vw",
+          height: "100vh",
+          overflow: "auto",
+          top: 0,
+          position: "fixed",
+          backdropFilter: "blur(1rem)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
   }
 
   const techStackArray = project.techStack
