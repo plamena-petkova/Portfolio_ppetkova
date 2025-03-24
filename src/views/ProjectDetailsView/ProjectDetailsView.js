@@ -61,12 +61,10 @@ const ProjectDetailsView = () => {
         <div className="project__card--text">
           <h2 className="project__card--heading">{project.name}</h2>
           <div className="project__card--text-techstack">
-            {items.length > 0 ? (
+            {items.length > 0 && (
               items.map((stack) => {
                 return <Chip key={stack} techName={stack} />;
               })
-            ) : (
-              <p>No tech stack available</p>
             )}
           </div>
           <p>{project.about}</p>
