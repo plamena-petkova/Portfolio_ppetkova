@@ -64,7 +64,7 @@ export function HomeView() {
             alignItems: "center",
           }}
         >
-          <CircularProgress />
+          <CircularProgress sx={{color:'#00b200'}} />
         </Box>
       )}
       <TimelineView />

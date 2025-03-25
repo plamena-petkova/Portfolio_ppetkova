@@ -5,6 +5,7 @@ import {
   types,
   useNotificationContext,
 } from "../../context/notificationContext";
+import { ButtonSend } from "../Button/ButtonSend";
 
 export function ContactForm() {
   const { addNotification } = useNotificationContext();
@@ -100,13 +101,13 @@ export function ContactForm() {
           onChange={(e) => setMessage(e.target.value)}
         />
       </div>
-      <button
-        className="btn btn--footer"
+      <ButtonSend
+        buttonClass={"btn btn--footer"}
         type="submit"
-        disabled={email === "" || name === "" || message === ""}
-      >
-        Send
-      </button>
+        disable={email === "" || name === "" || message === ""}
+        caption={'Send'}
+      />
+
     </form>
   );
 }

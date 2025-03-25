@@ -37,7 +37,7 @@ const ProjectDetailsView = () => {
           alignItems: "center",
         }}
       >
-        <CircularProgress />
+        <CircularProgress sx={{color:'#00b200'}} />
       </Box>
     );
   }
