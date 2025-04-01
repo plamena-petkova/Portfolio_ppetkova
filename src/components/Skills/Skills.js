@@ -2,7 +2,7 @@ import IcomoonReact from "icomoon-react";
 import iconSet from "../../assets/selection.json";
 import "./Skills.scss";
 import { useDeveloperContext } from "../../context/developerContext";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 
 export function Skills() {
@@ -13,40 +13,25 @@ export function Skills() {
   const [othersList, setOthersList] = useState([]);
   const [validIcons, setValidIcons] = useState({});
 
-  useEffect(() => {
-    if (skills && skills.skills) {
-      setFrontendList(skills?.skills[0]?.frontend[0]?.split(", "));
-      setBackendList(skills?.skills[0]?.backend[0]?.split(", "));
-      setOthersList(skills?.skills[0]?.others[0]?.split(", "));
-    }
-  }, [skills]);
+  const formatTechName = useCallback((name) => {
+    return name.toLowerCase().replace(/\s+/g, "");
+  }, []);
 
-  useEffect(() => {
-    const allTechs = [...frontendList, ...backendList, ...othersList];
-    
-    allTechs.forEach(tech => {
-      checkIconVariants(tech);
-    });
-  }, [frontendList, backendList, othersList]);
-
-  const formatTechName = (name) => name.toLowerCase().replace(/\s+/g, "");
-
-  const getLogoUrlVariant = (tech, variant) => {
+  const getLogoUrlVariant = useCallback((tech, variant) => {
     const formatted = formatTechName(tech);
     return `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${formatted}/${formatted}-${variant}.svg`;
-  };
+  }, [formatTechName]);
 
-  const checkImageExists = (url) => {
+  const checkImageExists = useCallback((url) => {
     return new Promise((resolve) => {
       const img = new Image();
       img.onload = () => resolve(true);
       img.onerror = () => resolve(false);
       img.src = url;
     });
-  };
+  }, []);
 
-  const checkIconVariants = async (tech) => {
-
+  const checkIconVariants = useCallback(async (tech) => {
     const variants = ["original", "plain", "original-wordmark", "plain-wordmark"];
  
     for (const variant of variants) {
@@ -66,7 +51,23 @@ export function Skills() {
       ...prev, 
       [tech]: { url: null, exists: false } 
     }));
-  };
+  }, [getLogoUrlVariant, checkImageExists]);
+
+  useEffect(() => {
+    if (skills && skills.skills) {
+      setFrontendList(skills?.skills[0]?.frontend[0]?.split(", "));
+      setBackendList(skills?.skills[0]?.backend[0]?.split(", "));
+      setOthersList(skills?.skills[0]?.others[0]?.split(", "));
+    }
+  }, [skills]);
+
+  useEffect(() => {
+    const allTechs = [...frontendList, ...backendList, ...othersList];
+    
+    allTechs.forEach(tech => {
+      checkIconVariants(tech);
+    });
+  }, [frontendList, backendList, othersList, checkIconVariants]);
 
   const TechItem = ({ tech, index }) => {
     const iconInfo = validIcons[tech];
