@@ -19,12 +19,13 @@
   }
 
   &-items {
+    width: 80vw;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-gap: 5rem;
     height: auto;
     padding: 1rem;
-    margin: 1.5rem;
+    margin: 0 auto;
 
     &-frontend-icon,
     &-backend-icon,
@@ -35,6 +36,7 @@
   }
 
   &-list {
+    
     background-color: transparent;
     padding: 2rem;
     border-radius: 4rem;
@@ -45,6 +47,10 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+
+      & > img {
+        width: 8%;
+      }
 
       & > p {
         margin-left: 1rem;

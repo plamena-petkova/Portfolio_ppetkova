@@ -3,6 +3,7 @@ import iconSet from "../../assets/selection.json";
 import "./Skills.scss";
 import { useDeveloperContext } from "../../context/developerContext";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export function Skills() {
   const { skills } = useDeveloperContext();
@@ -10,16 +11,89 @@ export function Skills() {
   const [frontendList, setFrontendList] = useState([]);
   const [backendList, setBackendList] = useState([]);
   const [othersList, setOthersList] = useState([]);
-  
+  const [validIcons, setValidIcons] = useState({});
 
   useEffect(() => {
-    if(skills && skills.skills) {
-      setFrontendList(skills?.skills[0]?.frontend[0]?.split(', '));
-      setBackendList(skills?.skills[0]?.backend[0]?.split(', '));
-      setOthersList(skills?.skills[0]?.others[0]?.split(', '));
+    if (skills && skills.skills) {
+      setFrontendList(skills?.skills[0]?.frontend[0]?.split(", "));
+      setBackendList(skills?.skills[0]?.backend[0]?.split(", "));
+      setOthersList(skills?.skills[0]?.others[0]?.split(", "));
     }
-  }, [skills])
+  }, [skills]);
 
+  useEffect(() => {
+    const allTechs = [...frontendList, ...backendList, ...othersList];
+    
+    allTechs.forEach(tech => {
+      checkIconVariants(tech);
+    });
+  }, [frontendList, backendList, othersList]);
+
+  const formatTechName = (name) => name.toLowerCase().replace(/\s+/g, "");
+
+  const getLogoUrlVariant = (tech, variant) => {
+    const formatted = formatTechName(tech);
+    return `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${formatted}/${formatted}-${variant}.svg`;
+  };
+
+  const checkImageExists = (url) => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => resolve(true);
+      img.onerror = () => resolve(false);
+      img.src = url;
+    });
+  };
+
+  const checkIconVariants = async (tech) => {
+
+    const variants = ["original", "plain", "original-wordmark", "plain-wordmark"];
+ 
+    for (const variant of variants) {
+      const url = getLogoUrlVariant(tech, variant);
+      const exists = await checkImageExists(url);
+      
+      if (exists) {
+        setValidIcons(prev => ({ 
+          ...prev, 
+          [tech]: { url, exists: true } 
+        }));
+        return;
+      }
+    }
+    
+    setValidIcons(prev => ({ 
+      ...prev, 
+      [tech]: { url: null, exists: false } 
+    }));
+  };
+
+  const TechItem = ({ tech, index }) => {
+    const iconInfo = validIcons[tech];
+    
+    return (
+      <div className="container__skills-list-item-box">
+        {iconInfo?.exists ? (
+          <motion.img
+            src={iconInfo.url}
+            alt={tech}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.3 }}
+            whileHover={{ scale: 1.2, rotate: 10 }}
+          />
+        ) : (
+          <IcomoonReact
+            iconSet={iconSet}
+            color="#00db00"
+            size={20}
+            icon="checkmark"
+          />
+        )}
+        <p>{tech}</p>
+      </div>
+    );
+  };
 
   return (
     <section id="skills" className="container__skills">
@@ -40,22 +114,10 @@ export function Skills() {
                 icon="embed2"
               />
             </div>
-            {frontendList?.length && frontendList.map((listItem, index) => {
-              return (
-                <div
-                  key={index}
-                  className="container__skills-list-item-box"
-                >
-                  <IcomoonReact
-                    iconSet={iconSet}
-                    color="#00db00"
-                    size={20}
-                    icon="checkmark"
-                  ></IcomoonReact>
-                  <p>{listItem}</p>
-                </div>
-              );
-            })}
+            {frontendList?.length > 0 &&
+              frontendList.map((tech, index) => (
+                <TechItem key={index} tech={tech} index={index} />
+              ))}
           </section>
         </div>
         <div className="container__skills-items-backend">
@@ -68,22 +130,10 @@ export function Skills() {
                 icon="database"
               />
             </div>
-            {backendList?.length && backendList.map((listItem, index) => {
-              return (
-                <div
-                  key={index}
-                  className="container__skills-list-item-box"
-                >
-                  <IcomoonReact
-                    iconSet={iconSet}
-                    color="#00db00"
-                    size={20}
-                    icon="checkmark"
-                  ></IcomoonReact>
-                  <p>{listItem}</p>
-                </div>
-              );
-            })}
+            {backendList?.length > 0 &&
+              backendList.map((tech, index) => (
+                <TechItem key={index} tech={tech} index={index} />
+              ))}
           </section>
         </div>
         <div className="container__skills-items-others">
@@ -96,22 +146,10 @@ export function Skills() {
                 icon="stack"
               />
             </div>
-            {othersList?.length && othersList.map((listItem, index) => {
-              return (
-                <div
-                  key={index}
-                  className="container__skills-list-item-box"
-                >
-                  <IcomoonReact
-                    iconSet={iconSet}
-                    color="#00db00"
-                    size={20}
-                    icon="checkmark"
-                  ></IcomoonReact>
-                  <p>{listItem}</p>
-                </div>
-              );
-            })}
+            {othersList?.length > 0 &&
+              othersList.map((tech, index) => (
+                <TechItem key={index} tech={tech} index={index} />
+              ))}
           </section>
         </div>
       </div>
@@ -119,4 +157,3 @@ export function Skills() {
     </section>
   );
 }
-
